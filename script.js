@@ -7,7 +7,7 @@ function updateCountdown() {
 
     if (diff <= 0) {
         document.querySelector('.countdown').innerHTML = 
-            "<h3 style='background:linear-gradient(135deg,#b8860b,#fce181);-webkit-background-clip:text;-webkit-text-fill-color:transparent;'>🎉 اللهم بارك لهما 🎉</h3>";
+            '<div style="width:100%;text-align:center;color:#c9a96e;font-weight:bold;font-size:1.2rem;">🎉 نسأل الله أن يبارك لهما 🎉</div>';
         return;
     }
 
