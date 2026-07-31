@@ -1,4 +1,3 @@
-// غير التاريخ هنا (السنة, الشهر-1, اليوم, الساعة, الدقيقة)
 const weddingDate = new Date(2026, 6, 31, 20, 0, 0).getTime();
 
 function updateCountdown() {
@@ -6,7 +5,7 @@ function updateCountdown() {
     const diff = weddingDate - now;
 
     if (diff <= 0) {
-        document.querySelector('.countdown').innerHTML = "<h3 style='color:#b8860b;'>🎉 الفرح بدأ الآن! 🎉</h3>";
+        document.querySelector('.countdown').innerHTML = "<h3 style='color:#b8860b;'>🎉 اللهم بارك لهم 🎉</h3>";
         return;
     }
 
