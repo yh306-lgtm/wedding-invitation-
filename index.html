@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>دعوة زفاف - هاجر و سعيد</title>
+    <title>دعوة زفاف - هاجر وسعيد</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
@@ -20,8 +20,8 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            /* خلفية هادئة ومبهجة (بيج مع لمسة ذهبية ناعمة) */
-            background: linear-gradient(145deg, #f7f0e6 0%, #eee4d8 100%);
+            /* خلفية عصرية بتدرج وردي بيج فاتح جداً */
+            background: radial-gradient(ellipse at 50% 0%, #f7ede8 0%, #e8dbd1 100%);
         }
 
         .page {
@@ -29,26 +29,28 @@
             max-width: 480px;
         }
 
-        /* ---- البطاقة البيضاء الأنيقة ---- */
+        /* ---- البطاقة البيضاء الشفافة (أنيقة ونظيفة) ---- */
         .card {
-            background: #ffffff;
+            background: rgba(255, 252, 250, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             padding: 25px 22px 35px;
-            border-radius: 36px 12px 36px 12px;
-            box-shadow: 0 25px 60px rgba(120, 90, 70, 0.13), 0 8px 20px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 40px 10px 40px 10px;
+            box-shadow: 0 30px 70px rgba(140, 100, 80, 0.15), 0 0 0 1px rgba(255, 215, 200, 0.3);
+            border: 1px solid rgba(255, 215, 200, 0.4);
             text-align: center;
         }
 
-        /* ---- صورة العروسين في الأعلى (زي الصورة الأصلية) ---- */
+        /* ---- صورة العروسين بإطار فاخر (ذهبي وردي) ---- */
         .photo-frame {
             width: 100%;
             max-width: 320px;
-            margin: 0 auto 20px;
-            border-radius: 28px;
+            margin: 0 auto 22px;
+            border-radius: 30px 10px 30px 10px;
             overflow: hidden;
-            box-shadow: 0 12px 35px rgba(140, 110, 80, 0.18);
-            border: 3px solid #ffffff;
-            outline: 1px solid #d6c9bb;
+            box-shadow: 0 15px 40px rgba(180, 130, 110, 0.2);
+            border: 4px solid #ffffff;
+            outline: 2px solid #dbb6a0; /* إطار وردي نحاسي ناعم */
         }
 
         .photo-frame img {
@@ -59,25 +61,32 @@
             object-fit: cover;
         }
 
-        /* ---- زينة بسيطة ---- */
+        /* ---- زينة علوية وسفلية (نجوم صغيرة) ---- */
         .ornament {
-            color: #c9a96e;
-            font-size: 0.65rem;
-            letter-spacing: 10px;
-            opacity: 0.5;
-            margin-bottom: 10px;
+            color: #d4a086; /* لون وردي نحاسي */
+            font-size: 0.6rem;
+            letter-spacing: 12px;
+            opacity: 0.6;
+            margin-bottom: 8px;
+        }
+        .ornament-bottom {
+            color: #d4a086;
+            font-size: 0.6rem;
+            letter-spacing: 12px;
+            opacity: 0.6;
+            margin-top: 12px;
         }
 
-        /* ---- النص الدعائي (بدءاً بـ "بكل سرور") ---- */
+        /* ---- نص الدعوة (بخط أنيق) ---- */
         .invite-text p {
             font-size: 1.05rem;
             line-height: 2.2;
-            color: #4a3b32;
+            color: #3d2c24;
             font-weight: 400;
             margin-bottom: 12px;
         }
 
-        /* ---- الأسماء (هاجر ❤️ سعيد) ---- */
+        /* ---- الأسماء (هاجر وسعيد) ---- */
         .names {
             display: flex;
             justify-content: center;
@@ -87,31 +96,32 @@
         }
 
         .name {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 800;
-            color: #1f140e;
-            letter-spacing: 1px;
+            color: #2a1b15;
+            letter-spacing: 2px;
         }
 
         .heart {
             font-size: 1.8rem;
-            color: #c9a06c;
+            color: #d47b6e; /* لون وردي غامق أنيق */
+            text-shadow: 0 0 20px rgba(212, 123, 110, 0.2);
         }
 
-        /* ---- الدعاء ---- */
+        /* ---- الدعاء (بلون نحاسي ناعم) ---- */
         .dua {
             font-size: 1rem;
-            color: #8a7a6a;
+            color: #a07e6e;
             font-weight: 500;
             font-style: italic;
             margin-bottom: 10px;
         }
 
-        /* ---- الفاصل ---- */
+        /* ---- الفاصل الذهبي الوردي ---- */
         .divider {
             border: none;
-            height: 1px;
-            background: linear-gradient(to right, transparent, #d6c9bb, #c9a06c, #d6c9bb, transparent);
+            height: 1.5px;
+            background: linear-gradient(to right, transparent, #dbb6a0, #d47b6e, #dbb6a0, transparent);
             margin: 18px 0;
         }
 
@@ -127,9 +137,9 @@
             gap: 12px;
             padding: 8px 0;
             font-size: 1.05rem;
-            color: #3d2e23;
+            color: #3d2c24;
             font-weight: 500;
-            border-bottom: 1px dashed rgba(214, 201, 187, 0.3);
+            border-bottom: 1px dashed rgba(210, 170, 155, 0.25);
         }
 
         .detail-item:last-of-type {
@@ -137,7 +147,7 @@
         }
 
         .detail-item i {
-            color: #c9a06c;
+            color: #d47b6e; /* وردي غامق للأيقونات */
             width: 24px;
             font-size: 1.1rem;
             text-align: center;
@@ -145,23 +155,24 @@
 
         .hijri {
             font-size: 0.75rem;
-            color: #a6927e;
+            color: #a07e6e;
             font-weight: 300;
             margin-right: 6px;
         }
 
+        /* ---- زر الخريطة (باللون الوردي النحاسي) ---- */
         .map-btn {
             display: inline-block;
             margin-top: 15px;
             padding: 12px 25px;
-            background: #c9a06c;
+            background: linear-gradient(145deg, #dbb6a0, #c9957e);
             border-radius: 60px;
             color: #fff;
             font-weight: 700;
             font-size: 0.9rem;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(201, 160, 108, 0.25);
+            box-shadow: 0 8px 25px rgba(201, 149, 126, 0.25);
             border: none;
             width: 100%;
             text-align: center;
@@ -172,20 +183,21 @@
         }
 
         .map-btn:hover {
-            background: #b08858;
+            background: linear-gradient(145deg, #c9957e, #b8806a);
             transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(201, 160, 108, 0.35);
+            box-shadow: 0 12px 35px rgba(201, 149, 126, 0.35);
         }
 
-        /* ---- العداد التنازلي ---- */
+        /* ---- العداد التنازلي (بخلفية وردية فاتحة) ---- */
         .countdown {
             display: flex;
             justify-content: space-around;
-            background: #f8f4ef;
+            background: rgba(235, 215, 205, 0.3);
             padding: 15px 5px;
             border-radius: 60px;
             margin: 20px 0 15px;
-            border: 1px solid #ece3d9;
+            border: 1px solid rgba(220, 185, 170, 0.3);
+            backdrop-filter: blur(4px);
         }
 
         .time-box {
@@ -197,13 +209,13 @@
         .time-box span {
             font-size: 2.2rem;
             font-weight: 800;
-            color: #3d2e23;
+            color: #3d2c24;
             line-height: 1.2;
         }
 
         .time-box label {
             font-size: 0.7rem;
-            color: #a6927e;
+            color: #a07e6e;
             font-weight: 500;
             margin-top: 2px;
         }
@@ -216,32 +228,24 @@
             margin-top: 8px;
         }
 
-        .ornament-bottom {
-            color: #c9a96e;
-            font-size: 0.65rem;
-            letter-spacing: 10px;
-            opacity: 0.5;
-            margin-top: 12px;
-        }
-
         /* ============================================ */
-        /* ---- تظبيط الجوال ---- */
+        /* ---- تظبيط الجوال (جودة عالية) ---- */
         /* ============================================ */
 
         @media (max-width: 480px) {
             body {
                 padding: 12px;
-                background: #f7f0e6;
+                background: #f7ede8;
             }
 
             .card {
                 padding: 20px 16px 25px;
-                border-radius: 28px 8px 28px 8px;
+                border-radius: 30px 8px 30px 8px;
             }
 
             .photo-frame {
                 max-width: 260px;
-                border-radius: 20px;
+                border-radius: 22px 6px 22px 6px;
             }
 
             .invite-text p {
@@ -250,7 +254,7 @@
             }
 
             .name {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
             }
 
             .heart {
@@ -291,14 +295,14 @@
             }
         }
 
-        /* للشاشات الصغيرة جداً (زي iPhone SE) */
+        /* للشاشات الصغيرة جداً */
         @media (max-width: 380px) {
             .photo-frame {
                 max-width: 200px;
             }
 
             .name {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .time-box span {
@@ -322,12 +326,12 @@
 
             <!-- ===== صورة العروسين في الأعلى ===== -->
             <div class="photo-frame">
-                <img src="https://picsum.photos/seed/wedding2026/600/400" alt="العروسان" />
+                <img src="https://picsum.photos/seed/wedding_hager/600/400" alt="هاجر وسعيد" />
             </div>
 
-            <div class="ornament">❋ ❋ ❋</div>
+            <div class="ornament">✦ ✦ ✦</div>
 
-            <!-- ===== النص الدعائي (شيلنا "روز وسعادة" خالص) ===== -->
+            <!-- ===== النص الدعائي ===== -->
             <div class="invite-text">
                 <p>
                     بكل سرورٍ وسعادةٍ،<br />
@@ -337,11 +341,11 @@
                 </p>
             </div>
 
-            <!-- ===== الأسماء ===== -->
+            <!-- ===== الأسماء (هاجر وسعيد) ===== -->
             <div class="names">
-                <span class="name">مريم</span>
+                <span class="name">هاجر</span>
                 <span class="heart">❤️</span>
-                <span class="name">أحمد</span>
+                <span class="name">سعيد</span>
             </div>
 
             <div class="dua">“ اللهم بارك لهما وبارك عليهما ”</div>
@@ -388,7 +392,7 @@
             </div>
 
             <p class="footer">نسأل الله أن يجمعنا بكم على خير 🤍</p>
-            <div class="ornament-bottom">❋ ❋ ❋</div>
+            <div class="ornament-bottom">✦ ✦ ✦</div>
 
         </div>
     </div>
@@ -403,7 +407,7 @@
 
             if (diff <= 0) {
                 document.querySelector('.countdown').innerHTML =
-                    '<div style="width:100%;text-align:center;color:#c9a06c;font-weight:bold;font-size:1.2rem;">🎉 اللهم بارك لهما 🎉</div>';
+                    '<div style="width:100%;text-align:center;color:#d47b6e;font-weight:bold;font-size:1.2rem;">🎉 اللهم بارك لهما 🎉</div>';
                 return;
             }
 
