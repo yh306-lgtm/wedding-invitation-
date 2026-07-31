@@ -4,44 +4,327 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>دعوة زفاف - أحمد ومريم</title>
-    <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            min-height: 100vh;
+            background-color: #1a1410; /* لون احتياطي لو الصورة ماتحمّلتش */
+        }
+
+        /* ======== الخلفية بالصورة + التعتيم ======== */
+        .hero {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 0;
+            background-image: url('https://picsum.photos/seed/rosegold/1200/800');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* السر ده يخلي الصورة ثابتة */
+        }
+
+        /* طبقة التعتيم السحرية */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                rgba(30, 20, 15, 0.45) 0%,   /* تعتيم خفيف فوق */
+                rgba(30, 20, 15, 0.65) 100%  /* تعتيم أقوى تحت عشان الكلام يبان */);
+            z-index: 1;
+        }
+
+        /* ======== البطاقة البيضاء (الورقة) ======== */
+        .content {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+            /* الدفع ده يخلي البطاقة تبدأ من نص الشاشة وتنزل تحت */
+            padding-top: 60vh; 
+        }
+
+        .card {
+            background: rgba(255, 252, 248, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            max-width: 500px;
+            width: 100%;
+            padding: 35px 28px 40px;
+            border-radius: 40px 10px 40px 10px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        /* ======== محتوى البطاقة ======== */
+        .ornament {
+            color: #c9a96e;
+            font-size: 0.7rem;
+            letter-spacing: 10px;
+            opacity: 0.6;
+            margin-bottom: 8px;
+        }
+
+        .title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #c9a06c;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 10px rgba(201, 160, 108, 0.15);
+        }
+
+        .invite-text p {
+            font-size: 1.05rem;
+            line-height: 2.2;
+            color: #3d2e23;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        .names {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            margin: 15px 0 8px;
+        }
+
+        .name {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1f140e;
+            letter-spacing: 1px;
+        }
+
+        .heart {
+            font-size: 1.8rem;
+            color: #c9a06c;
+        }
+
+        .dua {
+            font-size: 1rem;
+            color: #8a7a6a;
+            font-weight: 500;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .divider {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d6c9bb, #c9a06c, #d6c9bb, transparent);
+            margin: 18px 0;
+        }
+
+        .details {
+            text-align: right;
+            padding: 5px 0;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            font-size: 1.05rem;
+            color: #3d2e23;
+            font-weight: 500;
+            border-bottom: 1px dashed rgba(214, 201, 187, 0.3);
+        }
+        .detail-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .detail-item i {
+            color: #c9a06c;
+            width: 24px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .hijri {
+            font-size: 0.75rem;
+            color: #a6927e;
+            font-weight: 300;
+            margin-right: 6px;
+        }
+
+        .map-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 30px;
+            background: #c9a06c;
+            border-radius: 60px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(201, 160, 108, 0.3);
+            border: none;
+            width: 100%;
+            text-align: center;
+        }
+        .map-btn i {
+            margin-left: 8px;
+        }
+        .map-btn:hover {
+            background: #b08858;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(201, 160, 108, 0.4);
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px 5px;
+            border-radius: 60px;
+            margin: 20px 0 15px;
+            border: 1px solid #ece3d9;
+            backdrop-filter: blur(4px);
+        }
+
+        .time-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .time-box span {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #3d2e23;
+            line-height: 1.2;
+        }
+        .time-box label {
+            font-size: 0.7rem;
+            color: #a6927e;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .footer {
+            color: #7a6656;
+            font-size: 0.95rem;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+        .ornament-bottom {
+            color: #c9a96e;
+            font-size: 0.7rem;
+            letter-spacing: 10px;
+            opacity: 0.6;
+            margin-top: 12px;
+        }
+
+        /* ======== تظبيط الجوال ======== */
+        @media (max-width: 480px) {
+            .content {
+                padding-top: 45vh; /* البطاقة تبدأ من أوضه عشان تبان من تحت */
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .card {
+                padding: 25px 18px 30px;
+                border-radius: 30px 8px 30px 8px;
+            }
+            .title {
+                font-size: 1.8rem;
+            }
+            .invite-text p {
+                font-size: 0.95rem;
+                line-height: 2;
+            }
+            .name {
+                font-size: 2.2rem;
+            }
+            .heart {
+                font-size: 1.4rem;
+            }
+            .detail-item {
+                font-size: 0.9rem;
+                padding: 6px 0;
+            }
+            .time-box span {
+                font-size: 1.6rem;
+            }
+            .map-btn {
+                font-size: 0.8rem;
+                padding: 10px 15px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .content {
+                padding-top: 35vh;
+            }
+            .title {
+                font-size: 1.5rem;
+            }
+            .name {
+                font-size: 1.8rem;
+            }
+            .time-box span {
+                font-size: 1.3rem;
+            }
+            .invite-text p {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="page">
+
+    <!-- ===== الخلفية الثابتة مع التعتيم ===== -->
+    <div class="hero">
+        <div class="hero-overlay"></div>
+    </div>
+
+    <!-- ===== المحتوى (البطاقة) ===== -->
+    <div class="content">
         <div class="card">
 
-            <!-- صورة العروسين (إطار ناعم) -->
-            <div class="photo-frame">
-                <img src="https://picsum.photos/seed/wedding/600/400" alt="العروسان" />
-            </div>
-
-            <!-- زينة علوية -->
             <div class="ornament">❋ ❋ ❋</div>
 
-            <!-- المقدمة القلبية -->
-            <div class="intro">
-                <h1>بكل سرورٍ وسعادةٍ</h1>
+            <div class="title">روز وسعادة</div>
+
+            <div class="invite-text">
                 <p>
+                    بكل سرورٍ وسعادةٍ،<br />
                     نتشرف بدعوتكم لحضور حفل زفافنا،<br />
-                    وتكونوا جزءاً من فرحتنا، وتباركوا لنا<br />
+                    لتكونوا جزءاً من فرحتنا، وتباركوا لنا<br />
                     بدعائكم الجميل.
                 </p>
             </div>
 
-            <!-- الأسماء -->
             <div class="names">
-                <span class="name">أحمد</span>
-                <span class="ampersand">❤</span>
                 <span class="name">مريم</span>
+                <span class="heart">❤️</span>
+                <span class="name">أحمد</span>
             </div>
 
-            <div class="sub-line">“ اللهم بارك لهما وبارك عليهما ”</div>
+            <div class="dua">“ اللهم بارك لهما وبارك عليهما ”</div>
 
             <hr class="divider" />
 
-            <!-- التفاصيل -->
             <div class="details">
                 <div class="detail-item">
                     <i class="fas fa-calendar-check"></i>
@@ -60,7 +343,6 @@
                 </a>
             </div>
 
-            <!-- العداد التنازلي -->
             <div class="countdown">
                 <div class="time-box">
                     <span id="days">00</span>
@@ -80,13 +362,40 @@
                 </div>
             </div>
 
-            <!-- خاتمة -->
             <p class="footer">نسأل الله أن يجمعنا بكم على خير 🤍</p>
+            <div class="ornament-bottom">❋ ❋ ❋</div>
 
-            <div class="ornament">❋ ❋ ❋</div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // ===== العداد التنازلي =====
+        const weddingDate = new Date(2026, 6, 31, 20, 0, 0).getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const diff = weddingDate - now;
+
+            if (diff <= 0) {
+                document.querySelector('.countdown').innerHTML =
+                    '<div style="width:100%;text-align:center;color:#c9a06c;font-weight:bold;font-size:1.2rem;">🎉 اللهم بارك لهما 🎉</div>';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+
 </body>
-</html>
+    </html>
