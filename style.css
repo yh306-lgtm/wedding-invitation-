@@ -11,7 +11,6 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    /* خلفية رخامية ذهبية ناعمة */
     background: #e4d7c5;
     background-image: 
         radial-gradient(ellipse at 10% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
@@ -22,39 +21,70 @@ body {
 .card {
     background: rgba(255, 252, 245, 0.92);
     backdrop-filter: blur(4px);
-    padding: 45px 35px;
+    padding: 35px 30px 45px;
     max-width: 550px;
     width: 100%;
     border-radius: 30px 10px 30px 10px;
-    /* الحدود الذهبية المزدوجة */
     border: 2px solid #d4af37;
     outline: 5px solid rgba(212, 175, 55, 0.2);
     outline-offset: 3px;
-    box-shadow: 0 30px 70px rgba(139, 101, 8, 0.25), inset 0 0 80px rgba(212, 175, 55, 0.05);
+    box-shadow: 0 30px 70px rgba(139, 101, 8, 0.25);
     text-align: center;
-    transition: transform 0.3s ease;
 }
 
-.card:hover {
-    transform: scale(1.01);
+/* ------ صورة العروسين ------ */
+.couple-photo {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto 25px;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-/* خطوط الزينة */
+.couple-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    border: 4px solid #d4af37;
+}
+
+.golden-frame {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 25px;
+    pointer-events: none;
+}
+
+/* ------ الزينة والنصوص ------ */
 .decor-line {
     color: #d4af37;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     letter-spacing: 12px;
-    margin-bottom: 10px;
-    opacity: 0.7;
+    margin: 10px 0;
+    opacity: 0.6;
 }
 
-h1 {
-    font-size: 1.6rem;
-    font-weight: 300;
+.invitation-text h1 {
+    font-size: 2rem;
+    font-weight: 700;
     color: #8b6508;
-    letter-spacing: 6px;
-    text-transform: uppercase;
     margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.greeting {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: #3d2b1f;
+    font-weight: 400;
+    margin-bottom: 20px;
 }
 
 .names {
@@ -62,7 +92,7 @@ h1 {
     justify-content: center;
     align-items: center;
     gap: 12px;
-    margin-bottom: 10px;
+    margin: 10px 0 5px;
 }
 
 .names h2 {
@@ -78,12 +108,19 @@ h1 {
     font-weight: 300;
 }
 
-.invite-text {
-    color: #4a3728;
+.sub-text {
+    color: #8b6508;
     font-size: 1rem;
     font-weight: 500;
-    margin-bottom: 25px;
-    line-height: 1.8;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.gold-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d4af37, transparent);
+    margin: 25px 0;
 }
 
 .details {
@@ -133,14 +170,6 @@ h1 {
     box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
 }
 
-/* الفاصل الذهبي */
-.gold-divider {
-    border: none;
-    height: 1px;
-    background: linear-gradient(to right, transparent, #d4af37, transparent);
-    margin: 25px 0;
-}
-
 .countdown {
     display: flex;
     justify-content: space-around;
@@ -148,6 +177,7 @@ h1 {
     padding: 15px 5px;
     border-radius: 60px;
     border: 1px solid #e8d5b7;
+    margin: 20px 0;
 }
 
 .countdown div {
@@ -165,85 +195,19 @@ h1 {
     line-height: 1.2;
 }
 
-/* نموذج RSVP */
-h3 {
-    color: #2c1810;
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-h3 i {
-    color: #d4af37;
-    margin-left: 8px;
-}
-
-.input-group {
-    position: relative;
-    margin: 10px 0;
-}
-
-.input-group i {
-    position: absolute;
-    right: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #d4af37;
+.footer-text {
+    color: #5a3e2b;
     font-size: 1rem;
-}
-
-input {
-    width: 100%;
-    padding: 14px 45px 14px 20px;
-    border-radius: 50px;
-    border: 1px solid #ddd0bc;
-    background: white;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 1rem;
-    transition: 0.3s;
-    outline: none;
-}
-
-input:focus {
-    border-color: #d4af37;
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
-}
-
-button {
-    width: 100%;
-    padding: 14px;
+    font-weight: 400;
     margin-top: 10px;
-    background: linear-gradient(145deg, #d4af37, #b8860b);
-    border: none;
-    border-radius: 50px;
-    color: white;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(184, 134, 11, 0.3);
-}
-
-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 35px rgba(184, 134, 11, 0.4);
-    background: linear-gradient(145deg, #c5a059, #8b6508);
-}
-
-button i {
-    margin-left: 8px;
-}
-
-.note {
-    font-size: 0.75rem;
-    color: #8a7a6a;
-    margin-top: 15px;
 }
 
 /* استجابة للجوال */
 @media (max-width: 480px) {
-    .card { padding: 30px 20px; }
-    .names h2 { font-size: 2rem; }
+    .card { padding: 25px 18px; }
+    .names h2 { font-size: 2.2rem; }
+    .invitation-text h1 { font-size: 1.6rem; }
+    .greeting { font-size: 1rem; }
     .countdown span { font-size: 1.6rem; }
-}
+    .couple-photo { max-width: 280px; }
+    }
