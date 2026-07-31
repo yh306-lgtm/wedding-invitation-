@@ -11,308 +11,292 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background: linear-gradient(-45deg, #fce4ec, #ffe0b2, #f3e5f5, #d4af37);
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
-    overflow-x: hidden;
+    /* ألوان هادئة ومبهجة (بيج مع لمسة وردية ناعمة جداً) */
+    background: linear-gradient(145deg, #f7f2eb 0%, #ece3d9 100%);
 }
 
-/* ---- خلفية متحركة ساحرة ---- */
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* ---- شرارات ذهبية متطايرة (خلفية) ---- */
-.sparkles {
-    position: fixed;
-    top: 0;
-    left: 0;
+.page {
     width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    background-image: 
-        radial-gradient(2px 2px at 20px 30px, #ffd700, transparent),
-        radial-gradient(2px 2px at 40px 70px, #fff8dc, transparent),
-        radial-gradient(3px 3px at 50px 160px, #ffd700, transparent),
-        radial-gradient(2px 2px at 90px 40px, #fff8dc, transparent),
-        radial-gradient(3px 3px at 130px 80px, #ffd700, transparent),
-        radial-gradient(2px 2px at 160px 30px, #fff8dc, transparent);
-    background-size: 200px 200px;
-    opacity: 0.6;
-    animation: twinkle 4s ease-in-out infinite alternate;
+    max-width: 500px; /* أقصى عرض للكارت */
 }
 
-@keyframes twinkle {
-    0% { opacity: 0.3; }
-    100% { opacity: 0.8; }
-}
-
-.container {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-/* ---- البطاقة الزجاجية (Glassmorphism) ---- */
+/* ---- البطاقة الرئيسية (نظيفة ورسمية) ---- */
 .card {
-    background: rgba(255, 252, 245, 0.25);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    padding: 35px 30px 40px;
-    max-width: 550px;
-    width: 100%;
-    border-radius: 40px 10px 40px 10px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15), inset 0 0 80px rgba(212, 175, 55, 0.1);
+    background: #ffffff;
+    padding: 30px 25px 35px;
+    border-radius: 32px;
+    box-shadow: 0 20px 60px rgba(120, 90, 70, 0.12), 0 8px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.7);
     text-align: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    animation: float 6s ease-in-out infinite;
+    transition: all 0.2s ease;
 }
 
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-
-.card:hover {
-    transform: scale(1.01) translateY(-5px);
-    box-shadow: 0 50px 100px rgba(184, 134, 11, 0.25);
-}
-
-/* ---- صورة العروسين (تخطف النظر) ---- */
-.image-wrapper {
-    position: relative;
+/* ---- صورة العروسين (إطار رسمي) ---- */
+.photo-frame {
     width: 100%;
-    max-width: 380px;
-    margin: 0 auto 25px;
-    border-radius: 30px;
+    max-width: 320px;
+    margin: 0 auto 20px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(140, 110, 80, 0.15);
+    border: 3px solid #ffffff;
+    outline: 1px solid #d6c9bb; /* إطار خارجي ناعم */
 }
 
-.image-wrapper img {
+.photo-frame img {
+    display: block;
     width: 100%;
     height: auto;
-    display: block;
-    border-radius: 30px;
-    border: 4px solid #fff;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 2;
-    transition: all 0.5s ease;
+    aspect-ratio: 4 / 3; /* يحافظ على تناسق الصورة */
+    object-fit: cover;
 }
 
-.image-wrapper:hover img {
-    transform: scale(1.02);
-    border-color: #d4af37;
+/* ---- الزينة ---- */
+.ornament {
+    color: #c9a96e;
+    font-size: 0.7rem;
+    letter-spacing: 8px;
+    margin: 8px 0 12px;
+    opacity: 0.6;
 }
 
-/* الحلقة المتوهجة حول الصورة */
-.glow-ring {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border-radius: 40px;
-    background: conic-gradient(from 0deg, #d4af37, #fff8dc, #d4af37, #b8860b, #d4af37);
-    z-index: 1;
-    animation: spinGlow 6s linear infinite;
-    opacity: 0.7;
-    filter: blur(4px);
-}
-
-@keyframes spinGlow {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* قلب صغير فوق الصورة */
-.heart-icon {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(4px);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 5;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-    border: 1px solid #d4af37;
-    color: #e91e63;
-    font-size: 1.5rem;
-}
-
-/* ---- الزينة والنصوص ---- */
-.decor {
-    color: #d4af37;
-    font-size: 0.8rem;
-    letter-spacing: 15px;
-    opacity: 0.7;
-    margin: 10px 0;
-}
-
-.message h1 {
-    font-size: 2.2rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, #b8860b, #fce181, #b8860b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+/* ---- النصوص القلبية ---- */
+.intro h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4a3b32;
     margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
-.message p {
-    font-size: 1.05rem;
+.intro p {
+    font-size: 1rem;
     line-height: 2;
-    color: #2c1810;
-    font-weight: 500;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+    color: #5f4c3e;
+    font-weight: 400;
 }
 
+/* ---- الأسماء (خط كبير وجذاب) ---- */
 .names {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
-    margin: 15px 0 5px;
+    margin: 18px 0 6px;
 }
 
-.names h2 {
-    font-size: 3rem;
-    font-weight: 900;
-    color: #1a0f0a;
+.name {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: #2d1f16;
     letter-spacing: 2px;
 }
 
 .ampersand {
-    font-size: 1.8rem;
-    color: #d4af37;
+    font-size: 1.6rem;
+    color: #c9a96e;
 }
 
-.dua {
-    font-size: 1.1rem;
-    color: #8b6508;
-    font-weight: 400;
-    font-style: italic;
+.sub-line {
+    font-size: 0.95rem;
+    color: #8a7a6a;
+    font-weight: 500;
     margin-bottom: 5px;
 }
 
-.gold-divider {
+/* ---- الفاصل ---- */
+.divider {
     border: none;
     height: 1px;
-    background: linear-gradient(to right, transparent, #d4af37, #fff8dc, #d4af37, transparent);
-    margin: 20px 0;
+    background: linear-gradient(to right, transparent, #d6c9bb, #c9a96e, #d6c9bb, transparent);
+    margin: 18px 0;
 }
 
+/* ---- التفاصيل (مكان وزمان) ---- */
 .details {
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(4px);
-    padding: 20px;
-    border-radius: 25px;
-    border-right: 4px solid #d4af37;
     text-align: right;
-    margin: 10px 0;
+    padding: 5px 0;
 }
 
-.details p {
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
     font-size: 1.05rem;
-    color: #2c1810;
-    margin: 8px 0;
-    font-weight: 600;
+    color: #3d2e23;
+    font-weight: 500;
+    border-bottom: 1px dashed rgba(214, 201, 187, 0.3);
 }
 
-.details i {
-    color: #d4af37;
-    width: 28px;
-    margin-left: 8px;
+.detail-item:last-of-type {
+    border-bottom: none;
+}
+
+.detail-item i {
+    color: #c9a96e;
+    width: 24px;
+    font-size: 1.1rem;
+    text-align: center;
 }
 
 .hijri {
-    font-size: 0.8rem;
-    color: #8b6508;
+    font-size: 0.75rem;
+    color: #a6927e;
     font-weight: 300;
-    margin-right: 5px;
+    margin-right: 6px;
 }
 
-.map-link {
+.map-btn {
     display: inline-block;
-    margin-top: 12px;
-    padding: 10px 25px;
-    background: linear-gradient(135deg, #d4af37, #b8860b);
+    margin-top: 15px;
+    padding: 12px 30px;
+    background: transparent;
+    border: 1.5px solid #c9a96e;
     border-radius: 60px;
-    color: #fff;
+    color: #8a6f4b;
     font-weight: 700;
-    text-decoration: none;
     font-size: 0.9rem;
-    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.3);
+    text-decoration: none;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(201, 169, 110, 0.1);
 }
 
-.map-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(184, 134, 11, 0.4);
-    background: linear-gradient(135deg, #c5a059, #8b6508);
-}
-
-.map-link i {
+.map-btn i {
     margin-left: 8px;
 }
 
+.map-btn:hover {
+    background: #c9a96e;
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(201, 169, 110, 0.3);
+}
+
+/* ---- العداد التنازلي (أنيق ومريح) ---- */
 .countdown {
     display: flex;
     justify-content: space-around;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(8px);
-    padding: 18px 5px;
+    background: #f8f4f0;
+    padding: 15px 5px;
     border-radius: 60px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
     margin: 20px 0 15px;
-    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.1);
+    border: 1px solid #ece3d9;
 }
 
-.countdown div {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #3d2b1f;
+.time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.countdown span {
-    display: block;
-    font-size: 2.4rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, #b8860b, #fce181);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.time-box span {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #4a3b32;
     line-height: 1.2;
+    letter-spacing: 2px;
 }
 
-.closing {
-    color: #3d2b1f;
-    font-size: 1rem;
+.time-box label {
+    font-size: 0.7rem;
+    color: #a6927e;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+/* ---- الخاتمة ---- */
+.footer {
+    color: #7a6656;
+    font-size: 0.95rem;
     font-weight: 400;
-    margin: 5px 0 0;
-    opacity: 0.8;
+    margin: 8px 0 5px;
 }
 
-/* ---- استجابة للجوال ---- */
+/* ============================================ */
+/* ---- التظبيط الخاص بالجوال (Mobile First) ---- */
+/* ============================================ */
+
 @media (max-width: 480px) {
-    .card { padding: 20px 15px; }
-    .names h2 { font-size: 2.2rem; }
-    .message h1 { font-size: 1.7rem; }
-    .message p { font-size: 0.95rem; }
-    .countdown span { font-size: 1.8rem; }
-    .countdown div { font-size: 0.7rem; }
-    .image-wrapper { max-width: 300px; }
-    .heart-icon { width: 40px; height: 40px; font-size: 1.2rem; bottom: 10px; right: 10px; }
+    body {
+        padding: 12px;
+        background: #f7f2eb; /* خلفية موحدة للجوال */
+    }
+
+    .card {
+        padding: 20px 16px 25px;
+        border-radius: 24px;
+    }
+
+    .photo-frame {
+        max-width: 260px;
+        border-radius: 20px;
+    }
+
+    .intro h1 {
+        font-size: 1.5rem;
+    }
+
+    .intro p {
+        font-size: 0.95rem;
+        line-height: 1.9;
+    }
+
+    .name {
+        font-size: 2rem;
+    }
+
+    .ampersand {
+        font-size: 1.3rem;
+    }
+
+    .detail-item {
+        font-size: 0.95rem;
+        padding: 6px 0;
+        gap: 10px;
+    }
+
+    .detail-item i {
+        width: 20px;
+        font-size: 1rem;
+    }
+
+    .map-btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        width: 100%; /* ياخد عرض كامل عشان يبقى مريح بالضغط */
+        text-align: center;
+    }
+
+    .countdown {
+        padding: 12px 3px;
+        border-radius: 40px;
+        gap: 5px;
+    }
+
+    .time-box span {
+        font-size: 1.8rem;
+    }
+
+    .time-box label {
+        font-size: 0.6rem;
+    }
+
+    .ornament {
+        font-size: 0.6rem;
+        letter-spacing: 6px;
+    }
+}
+
+/* للشاشات الصغيرة جداً (زي iPhone SE) */
+@media (max-width: 380px) {
+    .name {
+        font-size: 1.6rem;
+    }
+    .time-box span {
+        font-size: 1.4rem;
+    }
+    .intro h1 {
+        font-size: 1.3rem;
+    }
     }
