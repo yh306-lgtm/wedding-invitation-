@@ -2,78 +2,88 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>دعوة زفاف - أحمد ومريم</title>
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body>
-
-    <!-- ✨ حبات المطر الذهبي (شرارات الخلفية) -->
-    <div class="sparkles"></div>
-
-    <div class="container">
+    <div class="page">
         <div class="card">
 
-            <!-- صورة العروسين بإطار متوهج -->
-            <div class="image-wrapper">
-                <div class="glow-ring"></div>
-                <img src="https://picsum.photos/seed/wedding2026/500/350" alt="العروسان" />
-                <div class="heart-icon"><i class="fas fa-heart"></i></div>
+            <!-- صورة العروسين (إطار ناعم) -->
+            <div class="photo-frame">
+                <img src="https://picsum.photos/seed/wedding/600/400" alt="العروسان" />
             </div>
 
             <!-- زينة علوية -->
-            <div class="decor">
-                <span>✧</span> <span>✧</span> <span>✧</span>
-            </div>
+            <div class="ornament">❋ ❋ ❋</div>
 
-            <!-- كلمات من القلب -->
-            <div class="message">
-                <h1>بكلّ الحبّ .. ندعوكم</h1>
+            <!-- المقدمة القلبية -->
+            <div class="intro">
+                <h1>بكل سرورٍ وسعادةٍ</h1>
                 <p>
-                    نفرح بدعوتكم لحضور حفل زفافنا،<br />
-                    وتشاركونا أجمل لحظات العمر،<br />
-                    وتباركوا لنا بدعائكم الجميل.
+                    نتشرف بدعوتكم لحضور حفل زفافنا،<br />
+                    وتكونوا جزءاً من فرحتنا، وتباركوا لنا<br />
+                    بدعائكم الجميل.
                 </p>
             </div>
 
             <!-- الأسماء -->
             <div class="names">
-                <h2>أحمد</h2>
+                <span class="name">أحمد</span>
                 <span class="ampersand">❤</span>
-                <h2>مريم</h2>
+                <span class="name">مريم</span>
             </div>
 
-            <div class="dua">"اللهمّ اجمع بينهما في خير"</div>
+            <div class="sub-line">“ اللهم بارك لهما وبارك عليهما ”</div>
 
-            <hr class="gold-divider" />
+            <hr class="divider" />
 
             <!-- التفاصيل -->
             <div class="details">
-                <p><i class="fas fa-calendar-alt"></i> السبت ٣١ يوليو ٢٠٢٦ <span class="hijri">(١٦ محرم ١٤٤٨هـ)</span></p>
-                <p><i class="fas fa-clock"></i> الساعة ٨:٠٠ مساءً</p>
-                <p><i class="fas fa-map-pin"></i> قاعة الأفراح الكبرى - القاهرة</p>
-                <a href="#" target="_blank" class="map-link">
-                    <i class="fas fa-location-dot"></i> عرض الموقع على الخريطة
+                <div class="detail-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>السبت ٣١ يوليو ٢٠٢٦ <span class="hijri">(١٦ محرم ١٤٤٨ هـ)</span></span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-clock"></i>
+                    <span>الساعة الثامنة مساءً</span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-location-dot"></i>
+                    <span>قاعة الأفراح الكبرى - القاهرة</span>
+                </div>
+                <a href="#" target="_blank" class="map-btn">
+                    <i class="fas fa-map"></i> عرض الموقع على الخريطة
                 </a>
             </div>
 
-            <!-- عداد تنازلي -->
+            <!-- العداد التنازلي -->
             <div class="countdown">
-                <div><span id="days">00</span> يوم</div>
-                <div><span id="hours">00</span> ساعة</div>
-                <div><span id="minutes">00</span> دقيقة</div>
-                <div><span id="seconds">00</span> ثانية</div>
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <label>يوم</label>
+                </div>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <label>ساعة</label>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <label>دقيقة</label>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <label>ثانية</label>
+                </div>
             </div>
 
-            <!-- خاتمة رقيقة -->
-            <p class="closing">نسأل الله أن يملأ حياتكم بالخير والبركة 🤍</p>
+            <!-- خاتمة -->
+            <p class="footer">نسأل الله أن يجمعنا بكم على خير 🤍</p>
 
-            <div class="decor">
-                <span>✧</span> <span>✧</span> <span>✧</span>
-            </div>
-
+            <div class="ornament">❋ ❋ ❋</div>
         </div>
     </div>
 
