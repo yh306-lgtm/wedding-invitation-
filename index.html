@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>دعوة زفاف - أحمد ومريم</title>
+    <title>دعوة زفاف - مريم وأحمد</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
@@ -16,89 +16,68 @@
         body {
             font-family: 'Tajawal', sans-serif;
             min-height: 100vh;
-            background-color: #1a1410; /* لون احتياطي لو الصورة ماتحمّلتش */
-        }
-
-        /* ======== الخلفية بالصورة + التعتيم ======== */
-        .hero {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            z-index: 0;
-            background-image: url('https://picsum.photos/seed/rosegold/1200/800');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* السر ده يخلي الصورة ثابتة */
-        }
-
-        /* طبقة التعتيم السحرية */
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, 
-                rgba(30, 20, 15, 0.45) 0%,   /* تعتيم خفيف فوق */
-                rgba(30, 20, 15, 0.65) 100%  /* تعتيم أقوى تحت عشان الكلام يبان */);
-            z-index: 1;
-        }
-
-        /* ======== البطاقة البيضاء (الورقة) ======== */
-        .content {
-            position: relative;
-            z-index: 2;
-            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 30px 20px;
-            /* الدفع ده يخلي البطاقة تبدأ من نص الشاشة وتنزل تحت */
-            padding-top: 60vh; 
+            padding: 20px;
+            /* خلفية هادئة ومبهجة (بيج مع لمسة ذهبية ناعمة) */
+            background: linear-gradient(145deg, #f7f0e6 0%, #eee4d8 100%);
         }
 
-        .card {
-            background: rgba(255, 252, 248, 0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            max-width: 500px;
+        .page {
             width: 100%;
-            padding: 35px 28px 40px;
-            border-radius: 40px 10px 40px 10px;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2);
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            transition: transform 0.3s ease;
+            max-width: 480px;
         }
 
-        /* ======== محتوى البطاقة ======== */
+        /* ---- البطاقة البيضاء الأنيقة ---- */
+        .card {
+            background: #ffffff;
+            padding: 25px 22px 35px;
+            border-radius: 36px 12px 36px 12px;
+            box-shadow: 0 25px 60px rgba(120, 90, 70, 0.13), 0 8px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            text-align: center;
+        }
+
+        /* ---- صورة العروسين في الأعلى (زي الصورة الأصلية) ---- */
+        .photo-frame {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto 20px;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(140, 110, 80, 0.18);
+            border: 3px solid #ffffff;
+            outline: 1px solid #d6c9bb;
+        }
+
+        .photo-frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        /* ---- زينة بسيطة ---- */
         .ornament {
             color: #c9a96e;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             letter-spacing: 10px;
-            opacity: 0.6;
-            margin-bottom: 8px;
+            opacity: 0.5;
+            margin-bottom: 10px;
         }
 
-        .title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: #c9a06c;
-            letter-spacing: 3px;
-            margin-bottom: 12px;
-            text-shadow: 0 2px 10px rgba(201, 160, 108, 0.15);
-        }
-
+        /* ---- النص الدعائي (بدءاً بـ "بكل سرور") ---- */
         .invite-text p {
             font-size: 1.05rem;
             line-height: 2.2;
-            color: #3d2e23;
+            color: #4a3b32;
             font-weight: 400;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
+        /* ---- الأسماء (مريم ❤️ أحمد) ---- */
         .names {
             display: flex;
             justify-content: center;
@@ -119,6 +98,7 @@
             color: #c9a06c;
         }
 
+        /* ---- الدعاء ---- */
         .dua {
             font-size: 1rem;
             color: #8a7a6a;
@@ -127,6 +107,7 @@
             margin-bottom: 10px;
         }
 
+        /* ---- الفاصل ---- */
         .divider {
             border: none;
             height: 1px;
@@ -134,6 +115,7 @@
             margin: 18px 0;
         }
 
+        /* ---- التفاصيل (مكان وزمان) ---- */
         .details {
             text-align: right;
             padding: 5px 0;
@@ -149,6 +131,7 @@
             font-weight: 500;
             border-bottom: 1px dashed rgba(214, 201, 187, 0.3);
         }
+
         .detail-item:last-of-type {
             border-bottom: none;
         }
@@ -170,7 +153,7 @@
         .map-btn {
             display: inline-block;
             margin-top: 15px;
-            padding: 12px 30px;
+            padding: 12px 25px;
             background: #c9a06c;
             border-radius: 60px;
             color: #fff;
@@ -178,29 +161,31 @@
             font-size: 0.9rem;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(201, 160, 108, 0.3);
+            box-shadow: 0 8px 25px rgba(201, 160, 108, 0.25);
             border: none;
             width: 100%;
             text-align: center;
         }
+
         .map-btn i {
             margin-left: 8px;
         }
+
         .map-btn:hover {
             background: #b08858;
             transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(201, 160, 108, 0.4);
+            box-shadow: 0 12px 35px rgba(201, 160, 108, 0.35);
         }
 
+        /* ---- العداد التنازلي ---- */
         .countdown {
             display: flex;
             justify-content: space-around;
-            background: rgba(255, 255, 255, 0.5);
+            background: #f8f4ef;
             padding: 15px 5px;
             border-radius: 60px;
             margin: 20px 0 15px;
             border: 1px solid #ece3d9;
-            backdrop-filter: blur(4px);
         }
 
         .time-box {
@@ -208,12 +193,14 @@
             flex-direction: column;
             align-items: center;
         }
+
         .time-box span {
             font-size: 2.2rem;
             font-weight: 800;
             color: #3d2e23;
             line-height: 1.2;
         }
+
         .time-box label {
             font-size: 0.7rem;
             color: #a6927e;
@@ -221,71 +208,108 @@
             margin-top: 2px;
         }
 
+        /* ---- الخاتمة ---- */
         .footer {
             color: #7a6656;
             font-size: 0.95rem;
             font-weight: 400;
-            margin-top: 10px;
+            margin-top: 8px;
         }
+
         .ornament-bottom {
             color: #c9a96e;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             letter-spacing: 10px;
-            opacity: 0.6;
+            opacity: 0.5;
             margin-top: 12px;
         }
 
-        /* ======== تظبيط الجوال ======== */
+        /* ============================================ */
+        /* ---- تظبيط الجوال ---- */
+        /* ============================================ */
+
         @media (max-width: 480px) {
-            .content {
-                padding-top: 45vh; /* البطاقة تبدأ من أوضه عشان تبان من تحت */
-                padding-left: 15px;
-                padding-right: 15px;
+            body {
+                padding: 12px;
+                background: #f7f0e6;
             }
+
             .card {
-                padding: 25px 18px 30px;
-                border-radius: 30px 8px 30px 8px;
+                padding: 20px 16px 25px;
+                border-radius: 28px 8px 28px 8px;
             }
-            .title {
-                font-size: 1.8rem;
+
+            .photo-frame {
+                max-width: 260px;
+                border-radius: 20px;
             }
+
             .invite-text p {
                 font-size: 0.95rem;
                 line-height: 2;
             }
+
             .name {
                 font-size: 2.2rem;
             }
+
             .heart {
                 font-size: 1.4rem;
             }
+
             .detail-item {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
                 padding: 6px 0;
+                gap: 10px;
             }
-            .time-box span {
-                font-size: 1.6rem;
+
+            .detail-item i {
+                width: 20px;
+                font-size: 1rem;
             }
+
             .map-btn {
                 font-size: 0.8rem;
                 padding: 10px 15px;
             }
+
+            .countdown {
+                padding: 12px 3px;
+                border-radius: 40px;
+            }
+
+            .time-box span {
+                font-size: 1.8rem;
+            }
+
+            .time-box label {
+                font-size: 0.6rem;
+            }
+
+            .dua {
+                font-size: 0.9rem;
+            }
         }
 
+        /* للشاشات الصغيرة جداً (زي iPhone SE) */
         @media (max-width: 380px) {
-            .content {
-                padding-top: 35vh;
+            .photo-frame {
+                max-width: 200px;
             }
-            .title {
-                font-size: 1.5rem;
-            }
+
             .name {
                 font-size: 1.8rem;
             }
+
             .time-box span {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
+
             .invite-text p {
+                font-size: 0.85rem;
+            }
+
+            .detail-item {
                 font-size: 0.85rem;
             }
         }
@@ -293,19 +317,17 @@
 </head>
 <body>
 
-    <!-- ===== الخلفية الثابتة مع التعتيم ===== -->
-    <div class="hero">
-        <div class="hero-overlay"></div>
-    </div>
-
-    <!-- ===== المحتوى (البطاقة) ===== -->
-    <div class="content">
+    <div class="page">
         <div class="card">
+
+            <!-- ===== صورة العروسين في الأعلى ===== -->
+            <div class="photo-frame">
+                <img src="https://picsum.photos/seed/wedding2026/600/400" alt="العروسان" />
+            </div>
 
             <div class="ornament">❋ ❋ ❋</div>
 
-            <div class="title">روز وسعادة</div>
-
+            <!-- ===== النص الدعائي (شيلنا "روز وسعادة" خالص) ===== -->
             <div class="invite-text">
                 <p>
                     بكل سرورٍ وسعادةٍ،<br />
@@ -315,6 +337,7 @@
                 </p>
             </div>
 
+            <!-- ===== الأسماء ===== -->
             <div class="names">
                 <span class="name">مريم</span>
                 <span class="heart">❤️</span>
@@ -325,6 +348,7 @@
 
             <hr class="divider" />
 
+            <!-- ===== التفاصيل ===== -->
             <div class="details">
                 <div class="detail-item">
                     <i class="fas fa-calendar-check"></i>
@@ -343,6 +367,7 @@
                 </a>
             </div>
 
+            <!-- ===== العداد ===== -->
             <div class="countdown">
                 <div class="time-box">
                     <span id="days">00</span>
