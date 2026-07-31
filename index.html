@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوة عرس - الفخامة الذهبية</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- خطوط أنيقة -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <!-- زينة علوية -->
+            <div class="decor-line">
+                <span>✦</span> <span>✦</span> <span>✦</span>
+            </div>
+            
+            <h1>دعوة عرس</h1>
+            
+            <div class="names">
+                <h2>أحمد</h2>
+                <span class="ampersand">&</span>
+                <h2>مريم</h2>
+            </div>
+
+            <p class="invite-text">يشرفنا مشاركتكم فرحتنا، ونتشرف بدعوتكم لحضور حفل زفافنا</p>
+
+            <div class="details">
+                <p><i class="fas fa-calendar-alt"></i> السبت ٣١ يوليو ٢٠٢٦ م <br> <span class="hijri">(١٦ محرم ١٤٤٨ هـ)</span></p>
+                <p><i class="fas fa-clock"></i> الساعة الثامنة مساءً تماماً</p>
+                <p><i class="fas fa-map-marker-alt"></i> قاعة الأفراح الكبرى - القاهرة</p>
+                <a href="#" target="_blank" class="map-btn"><i class="fas fa-location-dot"></i> افتح في خرائط جوجل</a>
+            </div>
+            
+            <!-- فاصل ذهبي -->
+            <hr class="gold-divider">
+
+            <!-- عداد تنازلي -->
+            <div class="countdown">
+                <div><span id="days">00</span> يوم</div>
+                <div><span id="hours">00</span> ساعة</div>
+                <div><span id="minutes">00</span> دقيقة</div>
+                <div><span id="seconds">00</span> ثانية</div>
+            </div>
+
+            <hr class="gold-divider">
+
+            <!-- تأكيد الحضور -->
+            <h3><i class="fas fa-check-circle"></i> تأكيد الحضور</h3>
+            <form id="rsvp-form" action="https://formspree.io/f/معرفك_الخاص" method="POST">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="name" placeholder="الاسم الكريم" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-users"></i>
+                    <input type="number" name="guests" placeholder="عدد المرافقين" min="1">
+                </div>
+                <button type="submit"><i class="fas fa-pen"></i> أؤكد حضوري</button>
+            </form>
+            <p class="note">* سيصلك تأكيد بالرد على بريدنا الإلكتروني</p>
+            
+            <!-- زينة سفلية -->
+            <div class="decor-line">
+                <span>✦</span> <span>✦</span> <span>✦</span>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+              </html>
