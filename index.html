@@ -1,553 +1,427 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>هاجر وسعيد - القاعة الذهبية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>دعوة زفاف - هاجر وسعيد</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ========== RESET & BASE ========== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Tajawal', sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #0a0604;
-            overflow: hidden;
-            padding: 15px;
-            user-select: none;
+            background: #f0ebe5;
+            /* خلفية بيج هادئة جداً */;
+            padding: 20px;
         }
 
-        /* ========== CANVAS (الخلفية الذهبية السحرية) ========== */
-        #particles-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .page {
             width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
+            max-width: 440px;
         }
 
-        /* ========== البطاقة ثلاثية الأبعاد (Perspective) ========== */
-        .card-3d-wrapper {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: 520px;
-            perspective: 1200px;
-            perspective-origin: 50% 50%;
-        }
-
-        .card-3d {
-            width: 100%;
-            padding: 0 0 35px 0;
-            background: rgba(15, 10, 8, 0.55);
-            backdrop-filter: blur(18px) saturate(180%);
-            -webkit-backdrop-filter: blur(18px) saturate(180%);
-            border-radius: 60px 12px 60px 12px;
-            border: 2px solid rgba(212, 175, 55, 0.25);
-            box-shadow: 
-                0 0 40px rgba(212, 175, 55, 0.08),
-                inset 0 0 80px rgba(212, 175, 55, 0.03),
-                0 40px 80px rgba(0, 0, 0, 0.6);
-            transition: transform 0.2s cubic-bezier(0.03, 0.98, 0.52, 0.99), box-shadow 0.3s ease;
-            transform-style: preserve-3d;
-            will-change: transform;
+        /* --- البطاقة البيضاء الأنيقة --- */
+        .card {
+            background: #ffffff;
+            padding: 30px 25px 40px;
+            border-radius: 40px 8px 40px 8px;
+            box-shadow: 0 30px 60px rgba(60, 40, 30, 0.08), 0 10px 30px rgba(0, 0, 0, 0.02);
             text-align: center;
-            position: relative;
+            border: 1px solid rgba(230, 215, 200, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* ========== الإطار الذهبي المتوهج (المتحرك) ========== */
-        .card-3d::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            border-radius: 62px 14px 62px 14px;
-            background: conic-gradient(from 0deg, #d4af37, #f9e29a, #d4af37, #aa7c2a, #d4af37, #f9e29a, #d4af37);
-            z-index: -1;
-            animation: spinBorder 6s linear infinite;
-            background-size: 300% 300%;
-            filter: blur(2px);
-            opacity: 0.8;
-        }
-        @keyframes spinBorder {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 40px 80px rgba(60, 40, 30, 0.12);
         }
 
-        /* ========== إطار داخلي ثانوي (ذهبي ناعم) ========== */
-        .card-3d::after {
-            content: '';
-            position: absolute;
-            top: 4px;
-            left: 4px;
-            right: 4px;
-            bottom: 4px;
-            border-radius: 56px 8px 56px 8px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            pointer-events: none;
-        }
-
-        /* ========== محتوى البطاقة ========== */
-        .card-content {
-            position: relative;
-            padding: 30px 25px 10px 25px;
-            transform-style: preserve-3d;
-        }
-
-        /* ---- صورة العروسين (بيضاوية ذهبية) ---- */
-        .photo-royal {
+        /* --- صورة العروسين (نجمة التصميم) --- */
+        .photo-frame {
             width: 100%;
-            max-width: 280px;
-            margin: 0 auto 20px;
-            border-radius: 50% 20% 50% 20%;
+            max-width: 320px;
+            margin: 0 auto 25px;
+            border-radius: 30px 8px 30px 8px;
             overflow: hidden;
-            border: 4px solid #d4af37;
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.15), inset 0 0 40px rgba(212, 175, 55, 0.05);
-            transform: translateZ(40px);
-            transition: transform 0.3s ease;
+            box-shadow: 0 20px 40px rgba(60, 40, 30, 0.10);
+            border: 4px solid #ffffff;
+            outline: 1px solid #dccfc4;
+            /* إطار خارجي ناعم */;
         }
-        .photo-royal img {
+
+        .photo-frame img {
             display: block;
             width: 100%;
             height: auto;
-            aspect-ratio: 1/1;
+            aspect-ratio: 4 / 3;
             object-fit: cover;
-            filter: brightness(1.05) contrast(1.05);
+            transition: transform 0.6s ease;
         }
 
-        /* ---- الزينة العلوية ---- */
-        .ornament-crown {
-            color: #d4af37;
-            font-size: 0.8rem;
-            letter-spacing: 14px;
-            opacity: 0.5;
-            margin-bottom: 8px;
-            transform: translateZ(20px);
+        .photo-frame:hover img {
+            transform: scale(1.02);
         }
 
-        /* ---- النص الدعائي ---- */
-        .invite-royal p {
+        /* --- الزينة البسيطة --- */
+        .ornament {
+            color: #d4b48c;
+            font-size: 0.6rem;
+            letter-spacing: 12px;
+            opacity: 0.4;
+            margin-bottom: 12px;
+        }
+
+        /* --- النص الدعائي (يبدأ بـ "بكل سرور") --- */
+        .invite-text p {
             font-size: 1.05rem;
             line-height: 2.2;
-            color: #e8ddd0;
-            font-weight: 300;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            transform: translateZ(30px);
+            color: #3d2c24;
+            font-weight: 400;
+            margin-bottom: 15px;
         }
 
-        /* ---- الأسماء (هاجر وسعيد) ---- */
-        .names-royal {
+        /* --- الأسماء (هاجر وسعيد) --- */
+        .names {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 20px;
-            margin: 15px 0 5px;
-            transform: translateZ(50px);
+            margin: 10px 0 5px;
         }
-        .names-royal .name {
-            font-size: 3.6rem;
+
+        .name {
+            font-size: 3.2rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #f9e29a, #d4af37, #b8860b, #d4af37);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: goldShine 4s ease-in-out infinite alternate;
-            letter-spacing: 3px;
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+            color: #1f140e;
+            letter-spacing: 1px;
         }
-        @keyframes goldShine {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-        .names-royal .heart-gold {
+
+        .heart-icon {
             font-size: 2rem;
             color: #d47b6e;
-            text-shadow: 0 0 30px rgba(212, 123, 110, 0.3);
+            /* وردي أنيق */;
         }
 
-        /* ---- الدعاء ---- */
-        .dua-royal {
+        /* --- الدعاء --- */
+        .dua {
             font-size: 1rem;
-            color: #b89a82;
+            color: #9a7a68;
             font-weight: 400;
             font-style: italic;
-            margin-bottom: 12px;
-            transform: translateZ(20px);
+            margin-bottom: 15px;
         }
 
-        /* ---- الفاصل الذهبي ---- */
-        .divider-gold {
+        /* --- الفاصل الناعم --- */
+        .divider {
             border: none;
             height: 1px;
-            background: linear-gradient(to right, transparent, #d4af37, #f9e29a, #d4af37, transparent);
-            margin: 18px 0;
-            transform: translateZ(10px);
+            background: linear-gradient(to right, transparent, #dccfc4, #d4b48c, #dccfc4, transparent);
+            margin: 20px 0;
         }
 
-        /* ---- التفاصيل ---- */
-        .details-royal {
+        /* --- التفاصيل (مكان وزمان) --- */
+        .details {
             text-align: right;
-            transform: translateZ(25px);
+            padding: 5px 0;
         }
-        .detail-item-royal {
+
+        .detail-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 7px 0;
-            font-size: 1rem;
-            color: #d4c8b8;
-            font-weight: 400;
-            border-bottom: 1px dashed rgba(212, 175, 55, 0.15);
+            gap: 14px;
+            padding: 9px 0;
+            font-size: 1.05rem;
+            color: #3d2c24;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(220, 207, 196, 0.25);
         }
-        .detail-item-royal:last-of-type {
+
+        .detail-item:last-of-type {
             border-bottom: none;
         }
-        .detail-item-royal i {
-            color: #d4af37;
-            width: 24px;
-            font-size: 1rem;
+
+        .detail-item i {
+            color: #d4b48c;
+            width: 26px;
+            font-size: 1.1rem;
             text-align: center;
         }
-        .hijri-royal {
+
+        .hijri {
             font-size: 0.7rem;
-            color: #8a7a6a;
+            color: #9a8a7a;
             font-weight: 300;
             margin-right: 6px;
         }
 
-        .map-btn-royal {
+        /* --- زر الخريطة (ذهبي ناعم) --- */
+        .map-btn {
             display: block;
-            margin-top: 15px;
-            padding: 14px;
-            background: linear-gradient(145deg, #d4af37, #b8860b);
+            margin-top: 18px;
+            padding: 14px 20px;
+            background: #d4b48c;
             border-radius: 60px;
-            color: #0a0604;
-            font-weight: 800;
-            font-size: 0.9rem;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.95rem;
             text-decoration: none;
-            text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.2);
-            transform: translateZ(30px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .map-btn-royal i {
-            margin-left: 8px;
-        }
-        .map-btn-royal:hover {
-            transform: translateZ(40px) scale(1.02);
-            box-shadow: 0 12px 45px rgba(212, 175, 55, 0.35);
+            box-shadow: 0 8px 25px rgba(212, 180, 140, 0.2);
+            border: none;
+            text-align: center;
+            letter-spacing: 0.5px;
         }
 
-        /* ---- العداد التنازلي (أنيق) ---- */
-        .countdown-royal {
+        .map-btn i {
+            margin-left: 10px;
+        }
+
+        .map-btn:hover {
+            background: #c4a07a;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 180, 140, 0.3);
+        }
+
+        /* --- العداد التنازلي (نظيف وبارز) --- */
+        .countdown {
             display: flex;
             justify-content: space-around;
-            background: rgba(0, 0, 0, 0.25);
-            padding: 15px 5px;
+            background: #f8f5f0;
+            padding: 16px 5px;
             border-radius: 60px;
-            margin: 20px 0 12px;
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            backdrop-filter: blur(4px);
-            transform: translateZ(20px);
+            margin: 22px 0 15px;
+            border: 1px solid #ece3d9;
         }
-        .time-box-royal {
+
+        .time-box {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        .time-box-royal span {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: #f9e29a;
+
+        .time-box span {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: #1f140e;
             line-height: 1.2;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-        }
-        .time-box-royal label {
-            font-size: 0.65rem;
-            color: #8a7a6a;
-            font-weight: 500;
             letter-spacing: 1px;
         }
 
-        .footer-royal {
-            color: #7a6656;
-            font-size: 0.9rem;
-            font-weight: 300;
-            margin-top: 6px;
-            transform: translateZ(15px);
+        .time-box label {
+            font-size: 0.7rem;
+            color: #9a8a7a;
+            font-weight: 500;
+            margin-top: 2px;
         }
-        .ornament-bottom-royal {
-            color: #d4af37;
+
+        /* --- الخاتمة --- */
+        .footer-text {
+            color: #9a7a68;
+            font-size: 0.95rem;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+
+        .ornament-bottom {
+            color: #d4b48c;
             font-size: 0.6rem;
             letter-spacing: 12px;
             opacity: 0.4;
-            margin-top: 12px;
-            transform: translateZ(10px);
+            margin-top: 15px;
         }
 
-        /* ========== تظبيط الجوال ========== */
+        /* ============================================ */
+        /* --- تظبيط الجوال (باحترافية) --- */
+        /* ============================================ */
+
         @media (max-width: 480px) {
-            .card-3d-wrapper {
-                max-width: 400px;
+            body {
+                padding: 12px;
+                background: #f0ebe5;
             }
-            .card-content {
-                padding: 20px 18px 5px;
+
+            .card {
+                padding: 20px 16px 30px;
+                border-radius: 30px 6px 30px 6px;
             }
-            .photo-royal {
-                max-width: 200px;
-                border-width: 3px;
+
+            .photo-frame {
+                max-width: 260px;
+                border-radius: 22px 6px 22px 6px;
             }
-            .names-royal .name {
-                font-size: 2.6rem;
-            }
-            .names-royal .heart-gold {
-                font-size: 1.4rem;
-            }
-            .invite-royal p {
-                font-size: 0.9rem;
+
+            .invite-text p {
+                font-size: 0.95rem;
                 line-height: 2;
             }
-            .detail-item-royal {
-                font-size: 0.85rem;
-                gap: 8px;
+
+            .name {
+                font-size: 2.6rem;
             }
-            .countdown-royal .time-box-royal span {
+
+            .heart-icon {
                 font-size: 1.6rem;
             }
-            .countdown-royal {
-                padding: 10px 3px;
+
+            .detail-item {
+                font-size: 0.95rem;
+                padding: 7px 0;
+                gap: 10px;
             }
-            .card-3d {
-                border-radius: 40px 8px 40px 8px;
+
+            .detail-item i {
+                width: 22px;
+                font-size: 1rem;
             }
-            .card-3d::before {
-                border-radius: 42px 10px 42px 10px;
+
+            .map-btn {
+                font-size: 0.85rem;
+                padding: 12px 15px;
             }
-            .card-3d::after {
-                border-radius: 36px 4px 36px 4px;
+
+            .countdown {
+                padding: 12px 3px;
+                border-radius: 40px;
+            }
+
+            .time-box span {
+                font-size: 2rem;
+            }
+
+            .time-box label {
+                font-size: 0.6rem;
+            }
+
+            .dua {
+                font-size: 0.9rem;
             }
         }
 
         @media (max-width: 380px) {
-            .card-3d-wrapper {
-                max-width: 340px;
+            .photo-frame {
+                max-width: 200px;
             }
-            .names-royal .name {
+
+            .name {
                 font-size: 2rem;
             }
-            .photo-royal {
-                max-width: 160px;
+
+            .time-box span {
+                font-size: 1.6rem;
             }
-            .time-box-royal span {
-                font-size: 1.3rem;
+
+            .invite-text p {
+                font-size: 0.85rem;
             }
-            .invite-royal p {
+
+            .detail-item {
                 font-size: 0.8rem;
             }
-            .detail-item-royal {
-                font-size: 0.75rem;
-            }
-        }
 
-        /* لتوافق اللمس (إلغاء تأثير الماوس على الموبايل تلقائياً) */
-        @media (hover: none) {
-            .card-3d {
-                transition: transform 0.3s ease;
+            .card {
+                padding: 15px 12px 25px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== كانفاس الخلفية الذهبية ===== -->
-    <canvas id="particles-canvas"></canvas>
+    <div class="page">
+        <div class="card">
 
-    <!-- ===== البطاقة الثلاثية الأبعاد ===== -->
-    <div class="card-3d-wrapper">
-        <div class="card-3d" id="royalCard">
-            <div class="card-content">
-
-                <!-- صورة العروسين -->
-                <div class="photo-royal">
-                    <img src="https://picsum.photos/seed/royal_wedding_hager/600/600" alt="هاجر وسعيد" />
-                </div>
-
-                <div class="ornament-crown">✦ ✦ ✦</div>
-
-                <!-- النص -->
-                <div class="invite-royal">
-                    <p>
-                        بكل سرورٍ وسعادةٍ،<br />
-                        نتشرف بدعوتكم لحضور حفل زفافنا،<br />
-                        لتكونوا جزءاً من فرحتنا، وتباركوا لنا بدعائكم.
-                    </p>
-                </div>
-
-                <!-- الأسماء -->
-                <div class="names-royal">
-                    <span class="name">هاجر</span>
-                    <span class="heart-gold">❤️</span>
-                    <span class="name">سعيد</span>
-                </div>
-
-                <div class="dua-royal">“ اللهم بارك لهما وبارك عليهما ”</div>
-
-                <hr class="divider-gold" />
-
-                <!-- التفاصيل -->
-                <div class="details-royal">
-                    <div class="detail-item-royal">
-                        <i class="fas fa-calendar-check"></i>
-                        <span>السبت ٣١ يوليو ٢٠٢٦ <span class="hijri-royal">(١٦ محرم ١٤٤٨ هـ)</span></span>
-                    </div>
-                    <div class="detail-item-royal">
-                        <i class="fas fa-clock"></i>
-                        <span>الساعة الثامنة مساءً</span>
-                    </div>
-                    <div class="detail-item-royal">
-                        <i class="fas fa-location-dot"></i>
-                        <span>قاعة الأفراح الكبرى - القاهرة</span>
-                    </div>
-                    <a href="#" target="_blank" class="map-btn-royal">
-                        <i class="fas fa-map"></i> عرض الموقع على الخريطة
-                    </a>
-                </div>
-
-                <!-- العداد -->
-                <div class="countdown-royal">
-                    <div class="time-box-royal"><span id="daysR">00</span><label>يوم</label></div>
-                    <div class="time-box-royal"><span id="hoursR">00</span><label>ساعة</label></div>
-                    <div class="time-box-royal"><span id="minutesR">00</span><label>دقيقة</label></div>
-                    <div class="time-box-royal"><span id="secondsR">00</span><label>ثانية</label></div>
-                </div>
-
-                <p class="footer-royal">نسأل الله أن يجمعنا بكم على خير 🤍</p>
-                <div class="ornament-bottom-royal">✦ ✦ ✦</div>
-
+            <!-- ===== الصورة ===== -->
+            <div class="photo-frame">
+                <img src="https://picsum.photos/seed/hager_saeed/600/400" alt="هاجر وسعيد" />
             </div>
+
+            <div class="ornament">✦ ✦ ✦</div>
+
+            <!-- ===== النص ===== -->
+            <div class="invite-text">
+                <p>
+                    بكل سرورٍ وسعادةٍ،<br />
+                    نتشرف بدعوتكم لحضور حفل زفافنا،<br />
+                    لتكونوا جزءاً من فرحتنا، وتباركوا لنا<br />
+                    بدعائكم الجميل.
+                </p>
+            </div>
+
+            <!-- ===== الأسماء ===== -->
+            <div class="names">
+                <span class="name">هاجر</span>
+                <span class="heart-icon">❤️</span>
+                <span class="name">سعيد</span>
+            </div>
+
+            <div class="dua">“ اللهم بارك لهما وبارك عليهما ”</div>
+
+            <hr class="divider" />
+
+            <!-- ===== التفاصيل ===== -->
+            <div class="details">
+                <div class="detail-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>السبت ٣١ يوليو ٢٠٢٦ <span class="hijri">(١٦ محرم ١٤٤٨ هـ)</span></span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-clock"></i>
+                    <span>الساعة الثامنة مساءً</span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-location-dot"></i>
+                    <span>قاعة الأفراح الكبرى - القاهرة</span>
+                </div>
+                <a href="#" target="_blank" class="map-btn">
+                    <i class="fas fa-map"></i> عرض الموقع على الخريطة
+                </a>
+            </div>
+
+            <!-- ===== العداد ===== -->
+            <div class="countdown">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <label>يوم</label>
+                </div>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <label>ساعة</label>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <label>دقيقة</label>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <label>ثانية</label>
+                </div>
+            </div>
+
+            <p class="footer-text">نسأل الله أن يجمعنا بكم على خير 🤍</p>
+            <div class="ornament-bottom">✦ ✦ ✦</div>
+
         </div>
     </div>
 
     <script>
-        // ============================================================
-        // 1. خلفية كانفاس (نجوم ذهبية متحركة)
-        // ============================================================
-        const canvas = document.getElementById('particles-canvas');
-        const ctx = canvas.getContext('2d');
-        let width, height, particles = [];
-
-        function resizeCanvas() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', () => {
-            resizeCanvas();
-            initParticles();
-        });
-        resizeCanvas();
-
-        class Particle {
-            constructor() { this.reset(); }
-            reset() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.size = Math.random() * 3 + 1.5;
-                this.speedX = (Math.random() - 0.5) * 0.3;
-                this.speedY = (Math.random() - 0.5) * 0.3 - 0.05;
-                this.opacity = Math.random() * 0.7 + 0.3;
-                this.glow = Math.random() * 0.5 + 0.2;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) this.reset();
-                // تلألؤ خفيف
-                this.opacity = 0.5 + Math.sin(Date.now() / 2000 + this.x) * 0.2;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
-                ctx.shadowColor = `rgba(212, 175, 55, ${this.glow})`;
-                ctx.shadowBlur = 15;
-                ctx.fill();
-                ctx.shadowBlur = 0; // إعادة تعيين عشان ما يبطئش الرسم
-            }
-        }
-
-        function initParticles() {
-            particles = [];
-            const count = Math.min(120, Math.floor((width * height) / 8000));
-            for (let i = 0; i < count; i++) particles.push(new Particle());
-        }
-        initParticles();
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, width, height);
-            particles.forEach(p => { p.update();
-                p.draw(); });
-            // إضافة بعض الجزيئات الكبيرة النادرة
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-
-        // ============================================================
-        // 2. تأثير الميلان ثلاثي الأبعاد (حركة الماوس)
-        // ============================================================
-        const card = document.getElementById('royalCard');
-        const wrapper = document.querySelector('.card-3d-wrapper');
-
-        if (window.matchMedia('(hover: hover)').matches) {
-            wrapper.addEventListener('mousemove', (e) => {
-                const rect = wrapper.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                const mouseX = e.clientX - centerX;
-                const mouseY = e.clientY - centerY;
-
-                // حساب زوايا الميلان (حد أقصى 12 درجة)
-                const rotateY = (mouseX / (rect.width / 2)) * 12;
-                const rotateX = -(mouseY / (rect.height / 2)) * 12;
-
-                card.style.transform =
-                    `rotateY(${rotateY}deg) rotateX(${rotateX}deg) translateZ(10px)`;
-                card.style.boxShadow =
-                    `0 0 60px rgba(212, 175, 55, ${0.05 + Math.abs(rotateY) / 200}), 0 40px 80px rgba(0,0,0,0.5)`;
-            });
-
-            wrapper.addEventListener('mouseleave', () => {
-                card.style.transform = 'rotateY(0deg) rotateX(0deg) translateZ(0px)';
-                card.style.boxShadow = '0 0 40px rgba(212, 175, 55, 0.08), 0 40px 80px rgba(0,0,0,0.5)';
-            });
-        }
-
-        // ============================================================
-        // 3. العداد التنازلي
-        // ============================================================
+        // ===== العداد التنازلي =====
         const weddingDate = new Date(2026, 6, 31, 20, 0, 0).getTime();
 
-        function updateCountdownRoyal() {
+        function updateCountdown() {
             const now = new Date().getTime();
             const diff = weddingDate - now;
 
             if (diff <= 0) {
-                document.querySelector('.countdown-royal').innerHTML =
-                    '<div style="width:100%;text-align:center;color:#d4af37;font-weight:bold;font-size:1.2rem;">🎉 اللهم بارك لهما 🎉</div>';
+                document.querySelector('.countdown').innerHTML =
+                    '<div style="width:100%;text-align:center;color:#d4b48c;font-weight:bold;font-size:1.2rem;">🎉 اللهم بارك لهما 🎉</div>';
                 return;
             }
 
@@ -556,22 +430,14 @@
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            document.getElementById('daysR').textContent = String(days).padStart(2, '0');
-            document.getElementById('hoursR').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutesR').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('secondsR').textContent = String(seconds).padStart(2, '0');
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
         }
 
-        updateCountdownRoyal();
-        setInterval(updateCountdownRoyal, 1000);
-
-        // ============================================================
-        // 4. لمسة إضافية: إعادة تحجيم الكانفاس عند تغيير الاتجاه
-        // ============================================================
-        window.addEventListener('orientationchange', () => {
-            setTimeout(resizeCanvas, 300);
-            setTimeout(initParticles, 350);
-        });
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
     </script>
 
 </body>
