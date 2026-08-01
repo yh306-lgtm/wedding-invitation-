@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>دعوة زفاف - هاجر وسعيد</title>
+    <title>دعوة زفاف - المكتبة الملكية</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
@@ -19,386 +19,575 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background: #1a120e;
+            /* خلفية داكنة دافئة تشبه جدران المكتبة القديمة */
+            background-image:
+                radial-gradient(ellipse at 20% 50%, #2a1f18 0%, #0d0907 100%);
             padding: 20px;
-            /* خلفية عصرية بتدرج وردي بيج فاتح جداً */
-            background: radial-gradient(ellipse at 50% 0%, #f7ede8 0%, #e8dbd1 100%);
+            overflow-x: hidden;
         }
 
-        .page {
+        /* ======= خلفية رفوف الكتب (خيالية) ======= */
+        .library-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 480px;
-        }
-
-        /* ---- البطاقة البيضاء الشفافة (أنيقة ونظيفة) ---- */
-        .card {
-            background: rgba(255, 252, 250, 0.85);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            padding: 25px 22px 35px;
-            border-radius: 40px 10px 40px 10px;
-            box-shadow: 0 30px 70px rgba(140, 100, 80, 0.15), 0 0 0 1px rgba(255, 215, 200, 0.3);
-            border: 1px solid rgba(255, 215, 200, 0.4);
-            text-align: center;
-        }
-
-        /* ---- صورة العروسين بإطار فاخر (ذهبي وردي) ---- */
-        .photo-frame {
-            width: 100%;
-            max-width: 320px;
-            margin: 0 auto 22px;
-            border-radius: 30px 10px 30px 10px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(180, 130, 110, 0.2);
-            border: 4px solid #ffffff;
-            outline: 2px solid #dbb6a0; /* إطار وردي نحاسي ناعم */
-        }
-
-        .photo-frame img {
-            display: block;
-            width: 100%;
-            height: auto;
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
-        }
-
-        /* ---- زينة علوية وسفلية (نجوم صغيرة) ---- */
-        .ornament {
-            color: #d4a086; /* لون وردي نحاسي */
-            font-size: 0.6rem;
-            letter-spacing: 12px;
-            opacity: 0.6;
-            margin-bottom: 8px;
-        }
-        .ornament-bottom {
-            color: #d4a086;
-            font-size: 0.6rem;
-            letter-spacing: 12px;
-            opacity: 0.6;
-            margin-top: 12px;
-        }
-
-        /* ---- نص الدعوة (بخط أنيق) ---- */
-        .invite-text p {
-            font-size: 1.05rem;
-            line-height: 2.2;
-            color: #3d2c24;
-            font-weight: 400;
-            margin-bottom: 12px;
-        }
-
-        /* ---- الأسماء (هاجر وسعيد) ---- */
-        .names {
+            height: 100%;
+            z-index: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 18px;
-            margin: 15px 0 8px;
+            align-items: flex-end;
+            opacity: 0.15;
+            pointer-events: none;
         }
 
-        .name {
+        .shelf {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        .shelf .book-spine {
+            width: 24px;
+            height: 120px;
+            background: #3a2c24;
+            border-radius: 4px 4px 0 0;
+            box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.5);
+            transform: skewY(-2deg);
+            border-left: 2px solid #5a4a3a;
+            border-right: 2px solid #1a120e;
+        }
+
+        /* تلوين عشوائي للكتب في الخلفية */
+        .shelf .book-spine:nth-child(3n) {
+            background: #4a2c1a;
+            height: 140px;
+        }
+        .shelf .book-spine:nth-child(5n+2) {
+            background: #2a3a2a;
+            height: 100px;
+        }
+        .shelf .book-spine:nth-child(7n+4) {
+            background: #5a2a2a;
+            height: 130px;
+        }
+
+        /* ======= الشموع الجانبية (يسار ويمين) ======= */
+        .candle-left,
+        .candle-right {
+            position: fixed;
+            bottom: 30px;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            filter: drop-shadow(0 0 20px rgba(255, 150, 50, 0.3));
+        }
+        .candle-left {
+            left: 25px;
+        }
+        .candle-right {
+            right: 25px;
+        }
+
+        .candle-body {
+            width: 18px;
+            height: 70px;
+            background: linear-gradient(180deg, #f5e6d3, #d4b8a0);
+            border-radius: 6px 6px 4px 4px;
+            border: 1px solid #b08a74;
+            position: relative;
+            box-shadow: inset -3px 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .candle-body::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 10px;
+            background: #222;
+            border-radius: 50% 50% 0 0;
+        }
+
+        /* اللهب */
+        .flame {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 22px;
+            background: radial-gradient(ellipse at bottom, #ffdd44 0%, #ff8800 50%, #ff4400 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flicker 1.5s ease-in-out infinite alternate;
+            box-shadow: 0 0 30px rgba(255, 150, 0, 0.5);
+        }
+        @keyframes flicker {
+            0% {
+                transform: translateX(-50%) scale(1) rotate(-3deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateX(-50%) scale(1.1, 0.9) rotate(3deg);
+                opacity: 1;
+            }
+        }
+
+        .candle-base {
+            width: 30px;
+            height: 8px;
+            background: #b08a74;
+            border-radius: 4px;
+            margin-top: -2px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ======= حاوية الكتاب ======= */
+        .book-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 420px;
+            perspective: 1800px;
+            /* العمق الثلاثي الأبعاد */;
+        }
+
+        .book {
+            width: 100%;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .book-inner {
+            position: relative;
+            width: 100%;
+            padding-bottom: 140%;
+            /* نسبة عرض:ارتفاع تشبه الكتاب */
+            transition: transform 1.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+        }
+
+        /* حالة فتح الكتاب (التقليب) */
+        .book.open .book-inner {
+            transform: rotateY(-180deg);
+        }
+
+        /* ---- الوجوه الثلاثة للكتاب ---- */
+        .book-face {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px 4px 12px 4px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+        }
+
+        /* الغلاف الأمامي (الظهر) */
+        .book-cover {
+            background: linear-gradient(145deg, #2d1c14, #1a0f0a);
+            border: 3px solid #c9a06c;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+            z-index: 2;
+            box-shadow: inset 0 0 60px rgba(201, 160, 108, 0.1);
+        }
+
+        .book-cover .ornament-top {
+            color: #c9a06c;
+            font-size: 1.2rem;
+            letter-spacing: 12px;
+            opacity: 0.6;
+            margin-bottom: 15px;
+        }
+
+        .book-cover .book-title {
             font-size: 3rem;
             font-weight: 800;
-            color: #2a1b15;
-            letter-spacing: 2px;
+            color: #c9a06c;
+            text-shadow: 0 0 30px rgba(201, 160, 108, 0.2);
+            letter-spacing: 4px;
+            line-height: 1.3;
         }
 
-        .heart {
-            font-size: 1.8rem;
-            color: #d47b6e; /* لون وردي غامق أنيق */
-            text-shadow: 0 0 20px rgba(212, 123, 110, 0.2);
-        }
-
-        /* ---- الدعاء (بلون نحاسي ناعم) ---- */
-        .dua {
+        .book-cover .book-subtitle {
             font-size: 1rem;
-            color: #a07e6e;
-            font-weight: 500;
-            font-style: italic;
+            color: #a0806a;
+            margin-top: 10px;
+            border-top: 1px solid #5a4030;
+            padding-top: 12px;
+            width: 60%;
+            font-weight: 300;
+            letter-spacing: 6px;
+        }
+
+        .book-cover .heart-engrave {
+            font-size: 2.5rem;
+            color: #8a5a4a;
+            margin: 8px 0;
+            opacity: 0.5;
+        }
+
+        .book-cover .instruction {
+            position: absolute;
+            bottom: 25px;
+            color: #5a4a3a;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            opacity: 0.5;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 0.4;
+            }
+            50% {
+                opacity: 0.9;
+            }
+        }
+
+        /* الصفحات الداخلية (الوجه الخلفي) */
+        .book-pages {
+            background: #f4ebd9;
+            /* ورق قديم */
+            transform: rotateY(180deg);
+            padding: 30px 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 2px solid #d4c4ae;
+            box-shadow: inset 0 0 30px rgba(100, 70, 40, 0.1);
+            overflow-y: auto;
+        }
+
+        .book-pages .page-ornament {
+            color: #b08060;
+            font-size: 0.6rem;
+            letter-spacing: 8px;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .book-pages h2 {
+            font-size: 1.6rem;
+            color: #2d1c14;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .book-pages .invite-text {
+            font-size: 0.95rem;
+            line-height: 2;
+            color: #3d2c24;
+            text-align: center;
+            font-weight: 400;
             margin-bottom: 10px;
         }
 
-        /* ---- الفاصل الذهبي الوردي ---- */
-        .divider {
+        .book-pages .names-inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            margin: 8px 0 5px;
+        }
+        .book-pages .names-inner span {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #1a0f0a;
+        }
+        .book-pages .names-inner .heart-inner {
+            color: #b0604a;
+            font-size: 1.4rem;
+        }
+
+        .book-pages .dua-inner {
+            font-size: 0.9rem;
+            color: #8a6a5a;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .book-pages .divider-inner {
             border: none;
-            height: 1.5px;
-            background: linear-gradient(to right, transparent, #dbb6a0, #d47b6e, #dbb6a0, transparent);
-            margin: 18px 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #b08060, transparent);
+            margin: 12px 0;
         }
 
-        /* ---- التفاصيل (مكان وزمان) ---- */
-        .details {
-            text-align: right;
-            padding: 5px 0;
-        }
-
-        .detail-item {
+        .book-pages .detail-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 8px 0;
-            font-size: 1.05rem;
+            gap: 10px;
+            padding: 6px 0;
+            font-size: 0.95rem;
             color: #3d2c24;
             font-weight: 500;
-            border-bottom: 1px dashed rgba(210, 170, 155, 0.25);
+            border-bottom: 1px dashed rgba(180, 130, 100, 0.2);
+            text-align: right;
         }
-
-        .detail-item:last-of-type {
-            border-bottom: none;
-        }
-
-        .detail-item i {
-            color: #d47b6e; /* وردي غامق للأيقونات */
-            width: 24px;
-            font-size: 1.1rem;
+        .book-pages .detail-item i {
+            color: #b08060;
+            width: 22px;
+            font-size: 1rem;
             text-align: center;
         }
-
-        .hijri {
-            font-size: 0.75rem;
-            color: #a07e6e;
+        .book-pages .hijri-inner {
+            font-size: 0.7rem;
+            color: #8a7a6a;
             font-weight: 300;
-            margin-right: 6px;
         }
 
-        /* ---- زر الخريطة (باللون الوردي النحاسي) ---- */
-        .map-btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 25px;
-            background: linear-gradient(145deg, #dbb6a0, #c9957e);
+        .book-pages .map-inner {
+            display: block;
+            margin-top: 12px;
+            padding: 10px;
+            background: #b08060;
             border-radius: 60px;
             color: #fff;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(201, 149, 126, 0.25);
-            border: none;
-            width: 100%;
             text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 8px 25px rgba(176, 128, 96, 0.25);
         }
-
-        .map-btn i {
+        .book-pages .map-inner:hover {
+            background: #9a6a50;
+            transform: translateY(-2px);
+        }
+        .book-pages .map-inner i {
             margin-left: 8px;
         }
 
-        .map-btn:hover {
-            background: linear-gradient(145deg, #c9957e, #b8806a);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(201, 149, 126, 0.35);
-        }
-
-        /* ---- العداد التنازلي (بخلفية وردية فاتحة) ---- */
-        .countdown {
+        /* العداد داخل الكتاب */
+        .countdown-inner {
             display: flex;
             justify-content: space-around;
-            background: rgba(235, 215, 205, 0.3);
-            padding: 15px 5px;
-            border-radius: 60px;
-            margin: 20px 0 15px;
-            border: 1px solid rgba(220, 185, 170, 0.3);
-            backdrop-filter: blur(4px);
+            background: rgba(200, 180, 160, 0.2);
+            padding: 12px 3px;
+            border-radius: 40px;
+            margin: 15px 0 10px;
+            border: 1px solid #d4c4ae;
         }
-
-        .time-box {
+        .countdown-inner .time-box {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
-        .time-box span {
-            font-size: 2.2rem;
+        .countdown-inner .time-box span {
+            font-size: 1.8rem;
             font-weight: 800;
-            color: #3d2c24;
+            color: #2d1c14;
             line-height: 1.2;
         }
-
-        .time-box label {
-            font-size: 0.7rem;
-            color: #a07e6e;
+        .countdown-inner .time-box label {
+            font-size: 0.6rem;
+            color: #8a7a6a;
             font-weight: 500;
-            margin-top: 2px;
         }
 
-        /* ---- الخاتمة ---- */
-        .footer {
+        .book-pages .footer-inner {
+            font-size: 0.85rem;
             color: #7a6656;
-            font-size: 0.95rem;
-            font-weight: 400;
-            margin-top: 8px;
+            text-align: center;
+            margin-top: 6px;
         }
 
-        /* ============================================ */
-        /* ---- تظبيط الجوال (جودة عالية) ---- */
-        /* ============================================ */
-
+        /* ======= تظبيط الجوال ======= */
         @media (max-width: 480px) {
-            body {
-                padding: 12px;
-                background: #f7ede8;
+            .candle-left,
+            .candle-right {
+                display: none;
+                /* الشموع تختفي عشان ما تزحمش الشاشة الصغيرة */;
             }
 
-            .card {
-                padding: 20px 16px 25px;
-                border-radius: 30px 8px 30px 8px;
+            .book-wrapper {
+                max-width: 340px;
             }
 
-            .photo-frame {
-                max-width: 260px;
-                border-radius: 22px 6px 22px 6px;
+            .book-cover .book-title {
+                font-size: 2.2rem;
             }
-
-            .invite-text p {
-                font-size: 0.95rem;
-                line-height: 2;
+            .book-pages h2 {
+                font-size: 1.3rem;
             }
-
-            .name {
-                font-size: 2.4rem;
-            }
-
-            .heart {
-                font-size: 1.4rem;
-            }
-
-            .detail-item {
-                font-size: 0.95rem;
-                padding: 6px 0;
-                gap: 10px;
-            }
-
-            .detail-item i {
-                width: 20px;
-                font-size: 1rem;
-            }
-
-            .map-btn {
-                font-size: 0.8rem;
-                padding: 10px 15px;
-            }
-
-            .countdown {
-                padding: 12px 3px;
-                border-radius: 40px;
-            }
-
-            .time-box span {
+            .book-pages .names-inner span {
                 font-size: 1.8rem;
             }
-
-            .time-box label {
-                font-size: 0.6rem;
+            .book-pages .invite-text {
+                font-size: 0.85rem;
             }
-
-            .dua {
-                font-size: 0.9rem;
+            .book-pages .detail-item {
+                font-size: 0.85rem;
             }
-        }
-
-        /* للشاشات الصغيرة جداً */
-        @media (max-width: 380px) {
-            .photo-frame {
-                max-width: 200px;
-            }
-
-            .name {
-                font-size: 2rem;
-            }
-
-            .time-box span {
+            .countdown-inner .time-box span {
                 font-size: 1.4rem;
             }
 
-            .invite-text p {
-                font-size: 0.85rem;
+            .book-inner {
+                padding-bottom: 130%;
             }
+            .book-pages {
+                padding: 20px 16px;
+            }
+            .shelf .book-spine {
+                height: 60px;
+                width: 16px;
+            }
+            .shelf .book-spine:nth-child(3n) {
+                height: 70px;
+            }
+            .shelf .book-spine:nth-child(5n+2) {
+                height: 50px;
+            }
+            .shelf .book-spine:nth-child(7n+4) {
+                height: 65px;
+            }
+        }
 
-            .detail-item {
-                font-size: 0.85rem;
+        @media (max-width: 380px) {
+            .book-wrapper {
+                max-width: 290px;
             }
+            .book-cover .book-title {
+                font-size: 1.8rem;
+            }
+            .book-pages .names-inner span {
+                font-size: 1.5rem;
+            }
+            .countdown-inner .time-box span {
+                font-size: 1.2rem;
+            }
+            .book-pages .invite-text {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* لتوافق اللمس */
+        .book {
+            touch-action: manipulation;
         }
     </style>
 </head>
 <body>
 
-    <div class="page">
-        <div class="card">
+    <!-- ======= خلفية رفوف الكتب ======= -->
+    <div class="library-bg">
+        <div class="shelf" id="shelf">
+            <!-- هنتوليد الكتب بجافاسكريبت عشان نظهر كتير -->
+        </div>
+    </div>
 
-            <!-- ===== صورة العروسين في الأعلى ===== -->
-            <div class="photo-frame">
-                <img src="https://picsum.photos/seed/wedding_hager/600/400" alt="هاجر وسعيد" />
+    <!-- ======= الشموع الجانبية ======= -->
+    <div class="candle-left">
+        <div class="candle-body"><div class="flame"></div></div>
+        <div class="candle-base"></div>
+    </div>
+    <div class="candle-right">
+        <div class="candle-body"><div class="flame"></div></div>
+        <div class="candle-base"></div>
+    </div>
+
+    <!-- ======= الكتاب السحري ======= -->
+    <div class="book-wrapper">
+        <div class="book" id="weddingBook" onclick="this.classList.toggle('open')">
+            <div class="book-inner">
+
+                <!-- الغلاف الأمامي (المغلق) -->
+                <div class="book-face book-cover">
+                    <div class="ornament-top">✦ ✦ ✦</div>
+                    <div class="heart-engrave">♔</div>
+                    <div class="book-title">هاجر</div>
+                    <div class="book-title" style="font-size:2rem; margin-top:-10px;">&amp; سعيد</div>
+                    <div class="book-subtitle">زفاف</div>
+                    <div class="instruction">اضغط لفتح الكتاب</div>
+                </div>
+
+                <!-- الصفحات الداخلية (المقلوبة) -->
+                <div class="book-face book-pages">
+                    <div class="page-ornament">❋ ❋ ❋</div>
+
+                    <h2>بكل سرورٍ وسعادةٍ</h2>
+                    <p class="invite-text">
+                        نتشرف بدعوتكم لحضور حفل زفافنا،<br />
+                        لتكونوا جزءاً من فرحتنا، وتباركوا لنا بدعائكم.
+                    </p>
+
+                    <div class="names-inner">
+                        <span>هاجر</span>
+                        <span class="heart-inner">❤️</span>
+                        <span>سعيد</span>
+                    </div>
+                    <div class="dua-inner">“ اللهم بارك لهما وبارك عليهما ”</div>
+
+                    <hr class="divider-inner" />
+
+                    <!-- التفاصيل -->
+                    <div class="detail-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>السبت ٣١ يوليو ٢٠٢٦ <span class="hijri-inner">(١٦ محرم ١٤٤٨ هـ)</span></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i>
+                        <span>الساعة الثامنة مساءً</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-location-dot"></i>
+                        <span>قاعة الأفراح الكبرى - القاهرة</span>
+                    </div>
+                    <a href="#" target="_blank" class="map-inner">
+                        <i class="fas fa-map"></i> عرض الموقع على الخريطة
+                    </a>
+
+                    <!-- العداد -->
+                    <div class="countdown-inner">
+                        <div class="time-box"><span id="d">00</span><label>يوم</label></div>
+                        <div class="time-box"><span id="h">00</span><label>ساعة</label></div>
+                        <div class="time-box"><span id="m">00</span><label>دقيقة</label></div>
+                        <div class="time-box"><span id="s">00</span><label>ثانية</label></div>
+                    </div>
+
+                    <p class="footer-inner">نسأل الله أن يجمعنا بكم على خير 🤍</p>
+                    <div class="page-ornament" style="margin-top:6px;">❋ ❋ ❋</div>
+                </div>
+
             </div>
-
-            <div class="ornament">✦ ✦ ✦</div>
-
-            <!-- ===== النص الدعائي ===== -->
-            <div class="invite-text">
-                <p>
-                    بكل سرورٍ وسعادةٍ،<br />
-                    نتشرف بدعوتكم لحضور حفل زفافنا،<br />
-                    لتكونوا جزءاً من فرحتنا، وتباركوا لنا<br />
-                    بدعائكم الجميل.
-                </p>
-            </div>
-
-            <!-- ===== الأسماء (هاجر وسعيد) ===== -->
-            <div class="names">
-                <span class="name">هاجر</span>
-                <span class="heart">❤️</span>
-                <span class="name">سعيد</span>
-            </div>
-
-            <div class="dua">“ اللهم بارك لهما وبارك عليهما ”</div>
-
-            <hr class="divider" />
-
-            <!-- ===== التفاصيل ===== -->
-            <div class="details">
-                <div class="detail-item">
-                    <i class="fas fa-calendar-check"></i>
-                    <span>السبت ٣١ يوليو ٢٠٢٦ <span class="hijri">(١٦ محرم ١٤٤٨ هـ)</span></span>
-                </div>
-                <div class="detail-item">
-                    <i class="fas fa-clock"></i>
-                    <span>الساعة الثامنة مساءً</span>
-                </div>
-                <div class="detail-item">
-                    <i class="fas fa-location-dot"></i>
-                    <span>قاعة الأفراح الكبرى - القاهرة</span>
-                </div>
-                <a href="#" target="_blank" class="map-btn">
-                    <i class="fas fa-map"></i> عرض الموقع على الخريطة
-                </a>
-            </div>
-
-            <!-- ===== العداد ===== -->
-            <div class="countdown">
-                <div class="time-box">
-                    <span id="days">00</span>
-                    <label>يوم</label>
-                </div>
-                <div class="time-box">
-                    <span id="hours">00</span>
-                    <label>ساعة</label>
-                </div>
-                <div class="time-box">
-                    <span id="minutes">00</span>
-                    <label>دقيقة</label>
-                </div>
-                <div class="time-box">
-                    <span id="seconds">00</span>
-                    <label>ثانية</label>
-                </div>
-            </div>
-
-            <p class="footer">نسأل الله أن يجمعنا بكم على خير 🤍</p>
-            <div class="ornament-bottom">✦ ✦ ✦</div>
-
         </div>
     </div>
 
     <script>
-        // ===== العداد التنازلي =====
+        // ======= توليد رفوف الكتب في الخلفية =======
+        const shelf = document.getElementById('shelf');
+        for (let i = 0; i < 45; i++) {
+            const book = document.createElement('div');
+            book.className = 'book-spine';
+            // اختلاف عشوائي في الارتفاع
+            const heights = ['100px', '120px', '140px', '110px', '130px'];
+            book.style.height = heights[Math.floor(Math.random() * heights.length)];
+            // اختلاف لوني بسيط
+            const colors = ['#2a1c14', '#3a2c24', '#1a2a1a', '#4a2c1a', '#2a1a2a'];
+            book.style.background = colors[Math.floor(Math.random() * colors.length)];
+            shelf.appendChild(book);
+        }
+
+        // ======= العداد التنازلي =======
         const weddingDate = new Date(2026, 6, 31, 20, 0, 0).getTime();
 
         function updateCountdown() {
@@ -406,8 +595,8 @@
             const diff = weddingDate - now;
 
             if (diff <= 0) {
-                document.querySelector('.countdown').innerHTML =
-                    '<div style="width:100%;text-align:center;color:#d47b6e;font-weight:bold;font-size:1.2rem;">🎉 اللهم بارك لهما 🎉</div>';
+                document.querySelector('.countdown-inner').innerHTML =
+                    '<div style="width:100%;text-align:center;color:#b08060;font-weight:bold;">🎉 اللهم بارك لهما 🎉</div>';
                 return;
             }
 
@@ -416,10 +605,10 @@
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            document.getElementById('d').textContent = String(days).padStart(2, '0');
+            document.getElementById('h').textContent = String(hours).padStart(2, '0');
+            document.getElementById('m').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('s').textContent = String(seconds).padStart(2, '0');
         }
 
         updateCountdown();
