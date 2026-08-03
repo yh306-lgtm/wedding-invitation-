@@ -281,22 +281,37 @@
             margin-bottom: 25px;
         }
 
-        /* ---- 1. الإعلان + العروسين ---- */
+        /* ---- 1. الإعلان الرسمي ---- */
         .announce-box {
             text-align: center;
         }
-        .announce-box p {
+
+        .verse-text {
+            font-size: 1.3rem;
+            line-height: 2.2;
+            color: #1a2a3a;
+            font-weight: 500;
+            margin-bottom: 20px;
+            background: #f4f8fc;
+            padding: 20px 15px;
+            border-radius: 30px 4px 30px 4px;
+            border-right: 6px solid #b08d6a;
+        }
+
+        .invitation-message {
             font-size: 1.1rem;
+            line-height: 2.2;
             color: #4a5a6a;
             font-weight: 400;
-            line-height: 2;
+            margin-bottom: 25px;
         }
+
         .couple-names-box {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 30px;
-            margin: 30px 0 10px;
+            margin: 20px 0 10px;
             flex-wrap: wrap;
         }
         .couple-item {
@@ -322,25 +337,45 @@
             color: #e88a8a;
         }
 
-        /* ---- 2. معرض الصور ---- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 15px;
+        /* ---- 2. صورة واحدة في برواز دهبي (تم تعديل هذا القسم) ---- */
+        .golden-frame {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
         }
-        .gallery-grid img {
+
+        .golden-frame .frame-inner {
+            padding: 12px;
+            background: linear-gradient(145deg, #d4af37, #b8860b, #f9e29a, #d4af37);
+            background-size: 300% 300%;
+            border-radius: 32px 8px 32px 8px;
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.25), 0 15px 35px rgba(0, 0, 0, 0.1);
+            animation: goldShineFrame 4s ease-in-out infinite alternate;
+            display: inline-block;
+            max-width: 90%;
+        }
+
+        @keyframes goldShineFrame {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .golden-frame img {
+            display: block;
             width: 100%;
-            height: 160px;
+            max-width: 400px;
+            height: auto;
+            aspect-ratio: 4 / 3;
             object-fit: cover;
             border-radius: 24px 4px 24px 4px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 2px solid #fff;
-            outline: 1px solid #e0e8ef;
+            border: 4px solid #ffffff;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease;
         }
-        .gallery-grid img:hover {
-            transform: scale(1.04);
-            box-shadow: 0 15px 35px rgba(44, 62, 80, 0.12);
+
+        .golden-frame img:hover {
+            transform: scale(1.02);
         }
 
         /* ---- 3. العداد التنازلي ---- */
@@ -441,76 +476,7 @@
             transform: translateY(-3px);
         }
 
-        /* ---- 5. Dress Code (ألوان) ---- */
-        .palette {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            margin: 15px 0;
-        }
-        .color-circle {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 4px solid #fff;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.6rem;
-            font-weight: 700;
-            color: #fff;
-            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-        }
-        .color-circle.pink {
-            background: #f4c2c2;
-            color: #5a3a3a;
-        }
-        .color-circle.blue {
-            background: #a8c8e8;
-            color: #1a3a5a;
-        }
-        .color-circle.white {
-            background: #f8f8f8;
-            color: #3a3a3a;
-            border-color: #d0d0d0;
-        }
-
-        /* ---- 6. جدول الفقرات ---- */
-        .schedule-timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 12px 20px;
-            background: #f8fafc;
-            border-radius: 60px;
-            border-right: 6px solid #b08d6a;
-        }
-        .timeline-item .time {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            color: #1a2a3a;
-            min-width: 70px;
-            font-size: 1.1rem;
-        }
-        .timeline-item .event {
-            font-weight: 500;
-            color: #3a4a5a;
-        }
-        .timeline-item .event i {
-            color: #b08d6a;
-            margin-left: 10px;
-            width: 20px;
-        }
-
-        /* ---- 7. دفتر الزوار (Guestbook) ---- */
+        /* ---- 5. دفتر الزوار (Guestbook) ---- */
         .guestbook-form {
             display: flex;
             flex-direction: column;
@@ -619,12 +585,21 @@
                 font-size: 1.8rem;
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-                gap: 10px;
+            .verse-text {
+                font-size: 1rem;
+                padding: 15px 12px;
             }
-            .gallery-grid img {
-                height: 120px;
+            .invitation-message {
+                font-size: 0.95rem;
+            }
+
+            .golden-frame .frame-inner {
+                padding: 8px;
+                border-radius: 24px 4px 24px 4px;
+            }
+            .golden-frame img {
+                max-width: 300px;
+                border-radius: 18px 2px 18px 2px;
             }
 
             .countdown-wrapper {
@@ -634,30 +609,8 @@
                 font-size: 2rem;
             }
 
-            .timeline-item {
-                padding: 10px 15px;
-                flex-wrap: wrap;
-                gap: 5px;
-            }
-            .timeline-item .time {
-                min-width: 60px;
-                font-size: 0.95rem;
-            }
-            .timeline-item .event {
-                font-size: 0.9rem;
-            }
-
             .map-container {
                 height: 160px;
-            }
-
-            .palette {
-                gap: 15px;
-            }
-            .color-circle {
-                width: 55px;
-                height: 55px;
-                font-size: 0.5rem;
             }
 
             .flower {
@@ -679,11 +632,17 @@
             .cd-item span {
                 font-size: 1.6rem;
             }
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            .verse-text {
+                font-size: 0.85rem;
             }
-            .gallery-grid img {
-                height: 90px;
+            .invitation-message {
+                font-size: 0.85rem;
+            }
+            .golden-frame img {
+                max-width: 220px;
+            }
+            .golden-frame .frame-inner {
+                padding: 6px;
             }
         }
     </style>
@@ -724,9 +683,20 @@
         <!-- 1. الإعلان الرسمي -->
         <div class="section-card announce-box">
             <div class="section-title-ar">💍 إعلان زفاف</div>
-            <p style="font-size:1.2rem; font-weight:500; color:#1a2a3a;">
-                We joyfully announce the wedding of our children
+
+            <!-- الآية القرآنية -->
+            <div class="verse-text">
+                ﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنْفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً﴾
+            </div>
+
+            <!-- نص الدعوة -->
+            <p class="invitation-message">
+                بحمد الله وتوفيقه، نتشرف بدعوتكم لمشاركتنا فرحة عقد قراننا،<br />
+                راجين من الله أن يجعلها بداية خير وبركة،<br />
+                وأن يرزقنا وإياكم السعادة في الدنيا والآخرة.
             </p>
+
+            <!-- أسماء العروسين -->
             <div class="couple-names-box">
                 <div class="couple-item">
                     <div class="label">العريس</div>
@@ -738,21 +708,14 @@
                     <div class="name-big">Hajar</div>
                 </div>
             </div>
-            <p style="color:#6a8a9a; font-weight:300;">
-                " اللهم بارك لهما وبارك عليهما "
-            </p>
         </div>
 
-        <!-- 2. معرض الصور -->
-        <div class="section-card">
-            <div class="section-title"><i class="fas fa-images"></i> ذكرياتنا</div>
-            <div class="gallery-grid">
-                <img src="https://picsum.photos/seed/hajar_saeed1/300/300" alt="Hajar & Saeed 1">
-                <img src="https://picsum.photos/seed/hajar_saeed2/300/300" alt="Hajar & Saeed 2">
-                <img src="https://picsum.photos/seed/hajar_saeed3/300/300" alt="Hajar & Saeed 3">
-                <img src="https://picsum.photos/seed/hajar_saeed4/300/300" alt="Hajar & Saeed 4">
-                <img src="https://picsum.photos/seed/hajar_saeed5/300/300" alt="Hajar & Saeed 5">
-                <img src="https://picsum.photos/seed/hajar_saeed6/300/300" alt="Hajar & Saeed 6">
+        <!-- 2. صورة واحدة في برواز دهبي (تم التعديل هنا) -->
+        <div class="section-card" style="text-align: center;">
+            <div class="golden-frame">
+                <div class="frame-inner">
+                    <img src="https://picsum.photos/seed/hajar_saeed_golden/600/450" alt="Hajar & Saeed" />
+                </div>
             </div>
         </div>
 
@@ -791,36 +754,7 @@
             </div>
         </div>
 
-        <!-- 5. Dress Code -->
-        <div class="section-card">
-            <div class="section-title"><i class="fas fa-palette"></i> زي الحفل</div>
-            <p style="text-align:center; color:#4a5a6a; margin-bottom:10px;">
-                نتمنى أن تشاركونا بهذه الألوان الأنيقة:
-            </p>
-            <div class="palette">
-                <div class="color-circle pink">وردي</div>
-                <div class="color-circle blue">أزرق</div>
-                <div class="color-circle white">أبيض</div>
-            </div>
-        </div>
-
-        <!-- 6. جدول الفقرات -->
-        <div class="section-card">
-            <div class="section-title"><i class="fas fa-clock"></i> جدول الحفل</div>
-            <div class="schedule-timeline">
-                <div class="timeline-item"><span class="time">18:30</span><span class="event"><i class="fas fa-users"></i> استقبال الضيوف (Welcome)</span></div>
-                <div class="timeline-item"><span class="time">19:45</span><span class="event"><i class="fas fa-check-circle"></i> الجاهزية (Being ready)</span></div>
-                <div class="timeline-item"><span class="time">20:00</span><span class="event"><i class="fas fa-music"></i> بداية الحفل (Party / Reception)</span></div>
-                <div class="timeline-item"><span class="time">21:30</span><span class="event"><i class="fas fa-utensils"></i> البوفيه (Buffet)</span></div>
-                <div class="timeline-item"><span class="time">22:15</span><span class="event"><i class="fas fa-fire"></i> شو الفاير (Fire show)</span></div>
-                <div class="timeline-item"><span class="time">00:00</span><span class="event"><i class="fas fa-star"></i> النهاية (End)</span></div>
-            </div>
-            <p style="text-align:center; font-size:0.75rem; color:#8aa0b0; margin-top:15px;">
-                * توقيت منتصف الليل (12:00) يعادل الساعة 00:00 من اليوم التالي
-            </p>
-        </div>
-
-        <!-- 7. دفتر الزوار والتهاني -->
+        <!-- 5. دفتر الزوار والتهاني -->
         <div class="section-card">
             <div class="section-title"><i class="fas fa-pen-fancy"></i> دفتر الزوار</div>
             <p style="text-align:center; color:#4a5a6a; margin-bottom:10px;">
@@ -854,26 +788,21 @@
             openBtn.addEventListener('click', function(e) {
                 e.preventDefault();
 
-                // =====================================================
-                // تشغيل الأغنية من رابط Dropbox مباشر (تم تعديل الرابط)
-                // =====================================================
-                const audio = new Audio('https://dl.dropboxusercontent.com/scl/fi/jfdp409ljgq7y4btneg2a/MP3.mp3?rlkey=p3zeom7vj78bwebmglheagzph&st=78n5qc7o&dl=1');
+                // تشغيل الأغنية من رابط Dropbox
+                const audio = new Audio('https://dl.dropboxusercontent.com/scl/fi/er8250go8mh8yzzibyl0c/_-_-_-_-_-MP3.mp3?rlkey=nfyvvwpcx1e9kgii16qr1kgd2&st=7bptydcn&dl=1');
                 audio.loop = true;
                 audio.volume = 0.7;
 
                 audio.play().catch(function(err) {
                     console.log('Audio play failed, using fallback:', err);
-                    // لو فشلت الأغنية، تشغل أغنية بديلة عشان الصفحة متبقاش صامتة
                     const fallbackAudio = new Audio('https://www.bensound.com/bensound-music/bensound-romantic.mp3');
                     fallbackAudio.loop = true;
                     fallbackAudio.volume = 0.5;
                     fallbackAudio.play();
                 });
 
-                // إخفاء الغلاف
                 coverPage.classList.add('hidden');
 
-                // إظهار الدعوة الرئيسية
                 setTimeout(function() {
                     mainInv.classList.add('visible');
                     setTimeout(function() {
