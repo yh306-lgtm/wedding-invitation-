@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>دعوة زفاف - Shady & Maryam</title>
+    <title>دعوة زفاف - Hajar & Saeed</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -706,8 +706,8 @@
         <!-- الظرف الرئيسي -->
         <div class="envelope">
             <div class="icon-crown">✧ ✧ ✧</div>
-            <h1>Shady <span class="ampersand">&amp;</span> Maryam</h1>
-            <div class="date-cover">August 8, 2026</div>
+            <h1>Hajar <span class="ampersand">&amp;</span> Saeed</h1>
+            <div class="date-cover">August 26, 2026</div>
             <div class="sub-cover">✨ سعادتنا بدعوتكم ✨</div>
 
             <button class="btn-open" id="openInvitationBtn">
@@ -730,12 +730,12 @@
             <div class="couple-names-box">
                 <div class="couple-item">
                     <div class="label">العريس</div>
-                    <div class="name-big">Shady</div>
+                    <div class="name-big">Saeed</div>
                 </div>
                 <div class="couple-divider-heart">❤️</div>
                 <div class="couple-item">
                     <div class="label">العروس</div>
-                    <div class="name-big">Maryam</div>
+                    <div class="name-big">Hajar</div>
                 </div>
             </div>
             <p style="color:#6a8a9a; font-weight:300;">
@@ -747,12 +747,12 @@
         <div class="section-card">
             <div class="section-title"><i class="fas fa-images"></i> ذكرياتنا</div>
             <div class="gallery-grid">
-                <img src="https://picsum.photos/seed/shadym1/300/300" alt="Shady & Maryam 1">
-                <img src="https://picsum.photos/seed/shadym2/300/300" alt="Shady & Maryam 2">
-                <img src="https://picsum.photos/seed/shadym3/300/300" alt="Shady & Maryam 3">
-                <img src="https://picsum.photos/seed/shadym4/300/300" alt="Shady & Maryam 4">
-                <img src="https://picsum.photos/seed/shadym5/300/300" alt="Shady & Maryam 5">
-                <img src="https://picsum.photos/seed/shadym6/300/300" alt="Shady & Maryam 6">
+                <img src="https://picsum.photos/seed/hajar_saeed1/300/300" alt="Hajar & Saeed 1">
+                <img src="https://picsum.photos/seed/hajar_saeed2/300/300" alt="Hajar & Saeed 2">
+                <img src="https://picsum.photos/seed/hajar_saeed3/300/300" alt="Hajar & Saeed 3">
+                <img src="https://picsum.photos/seed/hajar_saeed4/300/300" alt="Hajar & Saeed 4">
+                <img src="https://picsum.photos/seed/hajar_saeed5/300/300" alt="Hajar & Saeed 5">
+                <img src="https://picsum.photos/seed/hajar_saeed6/300/300" alt="Hajar & Saeed 6">
             </div>
         </div>
 
@@ -760,7 +760,7 @@
         <div class="section-card">
             <div class="section-title"><i class="fas fa-calendar-alt"></i> موعد الحفل</div>
             <div class="date-highlight">
-                السبت 8 أغسطس 2026 <small>| 20:00 مساءً</small>
+                الأربعاء 26 أغسطس 2026 <small>| 20:00 مساءً</small>
             </div>
             <div class="countdown-wrapper" id="countdownContainer">
                 <div class="cd-item"><span id="cdDays">00</span><label>يوم</label></div>
@@ -869,7 +869,6 @@
                 // إظهار الدعوة الرئيسية بعد ثانية
                 setTimeout(function() {
                     mainInv.classList.add('visible');
-                    // التمرير لأسفل قليلاً لإظهار المحتوى
                     setTimeout(function() {
                         mainInv.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }, 400);
@@ -877,7 +876,8 @@
             });
 
             // ---------- 2. COUNTDOWN (العداد التنازلي) ----------
-            const weddingDate = new Date(2026, 7, 8, 20, 0, 0).getTime(); // August 8, 2026, 20:00
+            // Updated to August 26, 2026, 20:00
+            const weddingDate = new Date(2026, 7, 26, 20, 0, 0).getTime();
 
             function updateCountdown() {
                 const now = new Date().getTime();
@@ -911,9 +911,8 @@
             const guestMsg = document.getElementById('guestMsg');
             const sendBtn = document.getElementById('sendMsgBtn');
 
-            // تحميل الرسائل المحفوظة
             function loadMessages() {
-                const stored = localStorage.getItem('weddingGuestbook');
+                const stored = localStorage.getItem('weddingGuestbook_HajarSaeed');
                 if (stored) {
                     try {
                         const msgs = JSON.parse(stored);
@@ -922,19 +921,18 @@
                         console.warn('Failed to parse guestbook data');
                     }
                 } else {
-                    // رسائل افتراضية جميلة
                     const defaultMessages = [
                         { name: 'Nadia', msg: 'ألف مبروك! ربنا يبارك لكما ويجعلكما من السعداء 🤍' },
                         { name: 'Khaled', msg: 'عقبال مليون سنة سعادة وفرحة 💫' }
                     ];
-                    localStorage.setItem('weddingGuestbook', JSON.stringify(defaultMessages));
+                    localStorage.setItem('weddingGuestbook_HajarSaeed', JSON.stringify(defaultMessages));
                     renderMessages(defaultMessages);
                 }
             }
 
             function renderMessages(messages) {
                 if (!messages) {
-                    const stored = localStorage.getItem('weddingGuestbook');
+                    const stored = localStorage.getItem('weddingGuestbook_HajarSaeed');
                     if (stored) messages = JSON.parse(stored);
                     else messages = [];
                 }
@@ -944,7 +942,6 @@
                     return;
                 }
                 let html = '';
-                // عرض أحدث الرسائل أولاً
                 const reversed = [...messages].reverse();
                 reversed.forEach(function(item) {
                     const dateStr = item.date || 'الآن';
@@ -959,14 +956,12 @@
                 messagesList.innerHTML = html;
             }
 
-            // دالة لحماية النصوص من الـ XSS
             function escapeHtml(text) {
                 const div = document.createElement('div');
                 div.textContent = text;
                 return div.innerHTML;
             }
 
-            // إضافة رسالة جديدة
             function addMessage() {
                 const name = guestName.value.trim();
                 const msg = guestMsg.value.trim();
@@ -976,7 +971,7 @@
                     return;
                 }
 
-                const stored = localStorage.getItem('weddingGuestbook');
+                const stored = localStorage.getItem('weddingGuestbook_HajarSaeed');
                 let messages = stored ? JSON.parse(stored) : [];
 
                 const newEntry = {
@@ -986,14 +981,13 @@
                 };
 
                 messages.push(newEntry);
-                localStorage.setItem('weddingGuestbook', JSON.stringify(messages));
+                localStorage.setItem('weddingGuestbook_HajarSaeed', JSON.stringify(messages));
 
                 guestName.value = '';
                 guestMsg.value = '';
 
                 renderMessages(messages);
 
-                // عرض رسالة نجاح بسيطة
                 const btn = sendBtn;
                 const originalText = btn.innerHTML;
                 btn.innerHTML = '✅ تم الإرسال!';
@@ -1004,7 +998,6 @@
 
             sendBtn.addEventListener('click', addMessage);
 
-            // إضافة إرسال بالضغط على Enter (في حقل الاسم)
             guestName.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
                     e.preventDefault();
@@ -1018,7 +1011,6 @@
                 }
             });
 
-            // تحميل الرسائل عند بدء الصفحة
             loadMessages();
 
         })();
