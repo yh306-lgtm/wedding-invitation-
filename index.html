@@ -854,19 +854,26 @@
             openBtn.addEventListener('click', function(e) {
                 e.preventDefault();
 
-                // تشغيل الأغنية (موسيقى رومانسية)
-                const audio = new Audio(
-                'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+                // =====================================================
+                // تشغيل الأغنية من رابط Dropbox مباشر (تم تعديل الرابط)
+                // =====================================================
+                const audio = new Audio('https://dl.dropboxusercontent.com/scl/fi/jfdp409ljgq7y4btneg2a/MP3.mp3?rlkey=p3zeom7vj78bwebmglheagzph&st=78n5qc7o&dl=1');
                 audio.loop = true;
-                audio.volume = 0.6;
+                audio.volume = 0.7;
+
                 audio.play().catch(function(err) {
-                    console.log('Audio play failed:', err);
+                    console.log('Audio play failed, using fallback:', err);
+                    // لو فشلت الأغنية، تشغل أغنية بديلة عشان الصفحة متبقاش صامتة
+                    const fallbackAudio = new Audio('https://www.bensound.com/bensound-music/bensound-romantic.mp3');
+                    fallbackAudio.loop = true;
+                    fallbackAudio.volume = 0.5;
+                    fallbackAudio.play();
                 });
 
                 // إخفاء الغلاف
                 coverPage.classList.add('hidden');
 
-                // إظهار الدعوة الرئيسية بعد ثانية
+                // إظهار الدعوة الرئيسية
                 setTimeout(function() {
                     mainInv.classList.add('visible');
                     setTimeout(function() {
@@ -876,7 +883,6 @@
             });
 
             // ---------- 2. COUNTDOWN (العداد التنازلي) ----------
-            // Updated to August 26, 2026, 20:00
             const weddingDate = new Date(2026, 7, 26, 20, 0, 0).getTime();
 
             function updateCountdown() {
