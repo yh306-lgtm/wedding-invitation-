@@ -337,7 +337,7 @@
             color: #e88a8a;
         }
 
-        /* ---- 2. صورة واحدة في برواز دهبي (تم تعديل هذا القسم) ---- */
+        /* ---- 2. صورة واحدة في برواز دهبي ---- */
         .golden-frame {
             display: flex;
             justify-content: center;
@@ -710,7 +710,7 @@
             </div>
         </div>
 
-        <!-- 2. صورة واحدة في برواز دهبي (تم التعديل هنا) -->
+        <!-- 2. صورة واحدة في برواز دهبي -->
         <div class="section-card" style="text-align: center;">
             <div class="golden-frame">
                 <div class="frame-inner">
@@ -788,21 +788,26 @@
             openBtn.addEventListener('click', function(e) {
                 e.preventDefault();
 
-                // تشغيل الأغنية من رابط Dropbox
-                const audio = new Audio('https://dl.dropboxusercontent.com/scl/fi/er8250go8mh8yzzibyl0c/_-_-_-_-_-MP3.mp3?rlkey=nfyvvwpcx1e9kgii16qr1kgd2&st=7bptydcn&dl=1');
+                // =====================================================
+                // تشغيل الأغنية من رابط Dropbox الجديد
+                // =====================================================
+                const audio = new Audio('https://dl.dropboxusercontent.com/scl/fi/p9ys1lsk8ad773wugdof5/_-_-_-_-_-MP4.mp3?rlkey=bf7v0ikwn64tkn9n5p9lv4pev&st=tfat1tcy&dl=1');
                 audio.loop = true;
                 audio.volume = 0.7;
 
                 audio.play().catch(function(err) {
                     console.log('Audio play failed, using fallback:', err);
+                    // لو فشلت الأغنية، تشغل أغنية بديلة
                     const fallbackAudio = new Audio('https://www.bensound.com/bensound-music/bensound-romantic.mp3');
                     fallbackAudio.loop = true;
                     fallbackAudio.volume = 0.5;
                     fallbackAudio.play();
                 });
 
+                // إخفاء الغلاف
                 coverPage.classList.add('hidden');
 
+                // إظهار الدعوة الرئيسية
                 setTimeout(function() {
                     mainInv.classList.add('visible');
                     setTimeout(function() {
